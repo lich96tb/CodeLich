@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "425054212934",
+    "firebase_url": "https://amplified-cat-203017.firebaseio.com",
+    "project_id": "amplified-cat-203017",
+    "storage_bucket": "amplified-cat-203017.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:425054212934:android:0d7c7b706c8dda9b",
+        "android_client_info": {
+          "package_name": "com.example.lich96tb.tichhopgooglefacebook"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "425054212934-pla29bruu32mv66mecu5ppnsh939rdre.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.lich96tb.tichhopgooglefacebook",
+            "certificate_hash": "fbb8eeb7568256f5b87ce3943b225136d4281a00"
+          }
+        },
+        {
+          "client_id": "425054212934-cpl9ipilotuluhndq7uc6636hg9u290s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyADJrvsHydQ0dogg9QUqKxdaBnakQbmujs"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "425054212934-cpl9ipilotuluhndq7uc6636hg9u290s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
