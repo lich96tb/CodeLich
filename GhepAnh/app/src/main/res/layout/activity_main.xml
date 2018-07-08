@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+    <com.xiaopo.flying.sticker.StickerView
+        android:id="@+id/sticker_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:showBorder="true"
+        app:showIcons="true"
+        android:layout_gravity="center">
+        <!-- custom, maybe you will like to put an ImageView-->
+    </com.xiaopo.flying.sticker.StickerView>
+    <com.xiaopo.flying.sticker.StickerView
+        android:id="@+id/sticker_view2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:showBorder="true"
+        app:showIcons="true"
+        android:layout_gravity="center">
+        <!-- custom, maybe you will like to put an ImageView-->
+    </com.xiaopo.flying.sticker.StickerView>
+
+    <Button
+        android:id="@+id/btnKhoaKhung"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="93dp"
+        android:onClick="clickButton"
+        android:text="khoa khung" />
+
+    <Button
+        android:id="@+id/btnKhoaHinh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="57dp"
+        android:onClick="clickButton"
+        android:text="Khoa hinh" />
+
+</RelativeLayout>
