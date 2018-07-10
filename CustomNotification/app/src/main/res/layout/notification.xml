@@ -5,22 +5,6 @@
     android:orientation="horizontal"
     android:padding="10dp"
     android:gravity="left">
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="dsfddfssfdfdsfdsfdzcxzczxczxcccc
-        zx
-        zxc
-        z
-        xc
-        zx
-        c
-        zx
-        c
-        zx
-        c
-
-        zcccccccccccccccccccccccccccccc"/>
     <ImageView
         android:layout_marginLeft="10dp"
         android:id="@+id/imgNoti"
