@@ -16,5 +16,13 @@ public class clickBroadcast extends BroadcastReceiver {
         Toast.makeText(context,intent.getStringExtra("id")+"", Toast.LENGTH_SHORT).show();
         if (intent.getStringExtra("next")!=null)
         Toast.makeText(context,intent.getStringExtra("next")+"", Toast.LENGTH_SHORT).show();
+
+        //close notificaton bar
+        Intent it = new Intent(Intent.ACTION_CLOSE_SYSTEM_DIALOGS);
+        context.sendBroadcast(it);
+
+        //xoa nutification
+        NotificationManager notifManager= (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+        notifManager.cancelAll();
     }
 }
