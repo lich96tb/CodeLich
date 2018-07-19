@@ -5,6 +5,7 @@ import android.app.PendingIntent;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -61,7 +62,8 @@ public class MainActivity extends AppCompatActivity {
                // sendBroadcast(intent);
                 pendingIntent = PendingIntent.getBroadcast(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
                 alarmManager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
-                Toast.makeText(this, "thoi gian toast ra: "+calendar.getTimeInMillis(), Toast.LENGTH_SHORT).show();
+                Log.e("TIME ",calendar.getTimeInMillis()+"");
+                //Toast.makeText(this, "thoi gian toast ra: "+calendar.getTimeInMillis(), Toast.LENGTH_SHORT).show();
                 txtHienThi.setText(tring_gio + ":" + string_phut);
                 break;
         }
