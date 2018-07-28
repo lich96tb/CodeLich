@@ -1,5 +1,6 @@
 package com.example.lich96tb.bieudo;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -70,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
     public void clickBieuDo(View view) {
         switch (view.getId()){
             case R.id.btnBieuDoCot:
-
+                startActivity(new Intent(this,BieuDoDoc.class));
                 break;
         }
     }
