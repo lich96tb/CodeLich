@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/fragmentMain">
+    <fragment
+        android:id="@+id/fragmentMain"
+        android:name="com.example.myapplication.FragmentMain"
+        android:label="fragment_fragment_main"
+        tools:layout="@layout/fragment_fragment_main" >
+        <action
+            android:id="@+id/action_fragmentMain_to_fm1"
+            app:destination="@id/fm1" />
+        <action
+            android:id="@+id/action_fragmentMain_to_fm2"
+            app:destination="@id/fm2" />
+    </fragment>
+    <fragment
+        android:id="@+id/fm1"
+        android:name="com.example.myapplication.fm1"
+        android:label="fragment_fm1"
+        tools:layout="@layout/fragment_fm1" >
+        <action
+            android:id="@+id/action_fm1_to_fmNext"
+            app:destination="@id/fmNext" />
+    </fragment>
+    <fragment
+        android:id="@+id/fm2"
+        android:name="com.example.myapplication.fm2"
+        android:label="fragment_fm2"
+        tools:layout="@layout/fragment_fm2" />
+    <fragment
+        android:id="@+id/fmNext"
+        android:name="com.example.myapplication.FmNext"
+        android:label="fragment_fm_next"
+        tools:layout="@layout/fragment_fm_next" >
+        <argument android:name="nameArg"
+            app:argType="string"
+            android:defaultValue=" " />
+    </fragment>
+</navigation>
