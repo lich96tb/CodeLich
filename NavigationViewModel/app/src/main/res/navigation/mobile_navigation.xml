@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/fragmentIntro">
+    <fragment
+        android:id="@+id/fragmentIntro"
+        android:name="com.example.navigationviewmodel.FragmentIntro"
+        android:label="fragment_fragment_intro"
+        tools:layout="@layout/fragment_fragment_intro" >
+        <action
+            android:id="@+id/action_fragmentIntro_to_fragmentHome2"
+            app:destination="@id/fragmentHome2" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentHome2"
+        android:name="com.example.navigationviewmodel.FragmentHome"
+        android:label="fragment_fragment_home"
+        tools:layout="@layout/fragment_fragment_home" >
+        <action
+            android:id="@+id/action_fragmentHome2_to_lessonList"
+            app:destination="@id/lessonList" />
+        <action
+            android:id="@+id/action_fragmentHome2_to_fragmentBreathe"
+            app:destination="@id/fragmentBreathe" />
+        <action
+            android:id="@+id/action_fragmentHome2_to_fragmentPlayer2"
+            app:destination="@id/fragmentPlayer2" />
+    </fragment>
+    <fragment
+        android:id="@+id/lessonList"
+        android:name="com.example.navigationviewmodel.LessonList"
+        android:label="fragment_lesson_list"
+        tools:layout="@layout/fragment_lesson_list" >
+        <action
+            android:id="@+id/action_lessonList_to_fragmentPlayer2"
+            app:destination="@id/fragmentPlayer2" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentBreathe"
+        android:name="com.example.navigationviewmodel.FragmentBreathe"
+        android:label="fragment_fragment_breathe"
+        tools:layout="@layout/fragment_fragment_breathe" />
+    <fragment
+        android:id="@+id/fragmentPlayer2"
+        android:name="com.example.navigationviewmodel.FragmentPlayer"
+        android:label="fragment_fragment_player"
+        tools:layout="@layout/fragment_fragment_player" >
+        <action
+            android:id="@+id/action_fragmentPlayer2_to_setting"
+            app:destination="@id/setting" />
+    </fragment>
+    <fragment
+        android:id="@+id/setting"
+        android:name="com.example.navigationviewmodel.Setting"
+        android:label="fragment_setting"
+        tools:layout="@layout/fragment_setting" />
+</navigation>
