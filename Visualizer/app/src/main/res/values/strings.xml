@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="image_replay_button">Replay Button</string>
+    <string name="image_play_pause">Play Pause Button</string>
+</resources>

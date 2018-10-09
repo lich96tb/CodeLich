@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">ViewPagerNoi</string>
+    <string name="lorem_ipsum">Để làm cho giao diện người dùng của bạn tốt hơn như Duolingo, có 2 công việc phải được thực hiện: tạo từng mục bóng và phóng to ViewPagerkích thước mục hiện tại (ở giữa màn hình).      Chúng ta hãy tạo một lớp riêng biệt có tên ShadowTransformerlà các thực hiện OnPageChangeListenervà các PageTransformergiao diện. Khi người dù</string>
+</resources>
