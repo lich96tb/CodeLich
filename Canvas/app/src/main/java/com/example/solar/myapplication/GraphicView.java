@@ -34,19 +34,20 @@ public class GraphicView extends View {
 //        canvas.drawPoint(x, y, mPaint);
 
 ////Draw Line
+//        for(int i=0;i<100;i++){
 //        float startX = 30;
 //        float startY = 30;
 //        float stopX = getWidth()-30;
 //        float stopY = getHeight()-30;
-//        canvas.drawLine(startX, startY, stopX, stopY, mPaint);
+//        canvas.drawLine(startX, startY, stopX, stopY, mPaint);}
 
-////Draw Rect
-//        float width = 200;
-//        float height = 200;
-//
-//        float left = (getWidth() - width) / 2.0f;
-//        float top = (getHeight() - height) / 2.0f;
-//        canvas.drawRect(left, top, left + width, top + height, mPaint);
+//Draw Rect
+        float width = 200;
+        float height = 200;
+
+        float left = (getWidth() - width) / 2.0f;
+        float top = (getHeight() - height) / 2.0f;
+        canvas.drawRect(left, top, left + width, top + height, mPaint);
 
 
 //        //Draw Circle
@@ -82,12 +83,12 @@ public class GraphicView extends View {
 
         //cat 1/4
         //Draw Bitmap
-        Rect src = new Rect(0, 0, mBitmap.getWidth() / 2, mBitmap.getHeight() / 1);
-        int left = (getWidth() - src.width())/2;
-        int top = (getHeight() - src.height())/2;
-
-        Rect des = new Rect(left, top, left + src.width(), top + src.height());
-        canvas.drawBitmap(mBitmap, src, des, mPaint);
+//        Rect src = new Rect(0, 0, mBitmap.getWidth() / 2, mBitmap.getHeight() / 1);
+//        int left = (getWidth() - src.width())/2;
+//        int top = (getHeight() - src.height())/2;
+//
+//        Rect des = new Rect(left, top, left + src.width(), top + src.height());
+//        canvas.drawBitmap(mBitmap, src, des, mPaint);
 
 
     }
