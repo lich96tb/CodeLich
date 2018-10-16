@@ -16,10 +16,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //   LocalBroadcastManager.getInstance(registerReceiver(mRefreshReceiver, new IntentFilter("My Broadcast"));
 
         LocalBroadcastManager.getInstance(this).registerReceiver(mRefreshReceiver, new IntentFilter("My Broadcast"));
-
         IntentFilter filter = new IntentFilter();
         filter.addAction("My Broadcast");
 
