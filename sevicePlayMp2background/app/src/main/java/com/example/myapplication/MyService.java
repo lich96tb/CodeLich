@@ -73,7 +73,7 @@ public class MyService extends Service {
 
         mNotificationManager = (NotificationManager) mContext.getSystemService(Context.NOTIFICATION_SERVICE);
 
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             int importance = NotificationManager.IMPORTANCE_HIGH;
             NotificationChannel notificationChannel = new NotificationChannel(NOTIFICATION_CHANNEL_ID, "NOTIFICATION_CHANNEL_NAME", importance);
             notificationChannel.enableLights(true);
@@ -95,6 +95,12 @@ public class MyService extends Service {
         contentView.setOnClickPendingIntent(R.id.btnNext, pendingIntenta);
 
         Notification notification=mBuilder.build();
+//        RemoteViews bigView = new RemoteViews(getApplicationContext().getPackageName(), R.layout.notification);
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//            notification.bigContentView = bigView;
+//        }
+
+
         startForeground(1, notification);
     }
 }
