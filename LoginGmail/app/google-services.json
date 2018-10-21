@@ -1,0 +1,99 @@
+{
+  "project_info": {
+    "project_number": "783696800609",
+    "firebase_url": "https://loginfirebase-7a201.firebaseio.com",
+    "project_id": "loginfirebase-7a201",
+    "storage_bucket": "loginfirebase-7a201.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:783696800609:android:07dd34bc01be686a",
+        "android_client_info": {
+          "package_name": "com.example.admin.logingmail"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "783696800609-1389f4ko993qmte4dj2mq93hn6jisv47.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.admin.logingmail",
+            "certificate_hash": "c229686aa1e95e4e58b3ba75329de3d136c2247f"
+          }
+        },
+        {
+          "client_id": "783696800609-6dpi925qi6n487f4rtuosvr0jqhibtgn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDiSMqrrMdXxTrVFJFGrfHIDRl9swCakcY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "783696800609-6dpi925qi6n487f4rtuosvr0jqhibtgn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:783696800609:android:2e9d673386702e44",
+        "android_client_info": {
+          "package_name": "com.example.admin.logingooglefirebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "783696800609-dr8c8m9jkp5kc9jf04vmu05ofpah0so3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.admin.logingooglefirebase",
+            "certificate_hash": "c229686aa1e95e4e58b3ba75329de3d136c2247f"
+          }
+        },
+        {
+          "client_id": "783696800609-6dpi925qi6n487f4rtuosvr0jqhibtgn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDiSMqrrMdXxTrVFJFGrfHIDRl9swCakcY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "783696800609-6dpi925qi6n487f4rtuosvr0jqhibtgn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
