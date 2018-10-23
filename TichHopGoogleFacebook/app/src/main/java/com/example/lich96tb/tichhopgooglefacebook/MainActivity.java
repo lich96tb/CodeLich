@@ -98,7 +98,8 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
                 txtName.setText(name);
                 txtMail.setText(mail);
                 Picasso.get().load(avata).into(imgAvata);
-            }
+            }else
+                Toast.makeText(this, "aaaaaaaaaaaaaaaaaa", Toast.LENGTH_SHORT).show();
         }
     }
 }

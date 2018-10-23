@@ -26,20 +26,22 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         String url = "https://static.solarjsc.vn/sound/sleep/music/sleep_music_01.mp3";
         String name="lichabc";
-        new DownloadMusicFile().execute(url);
+        Bundle bundle=new Bundle();
+        bundle.putString("url",url);
+        bundle.putString("name",name);
+        new DownloadMusicFile().execute(bundle);
     }
 
-        class DownloadMusicFile extends AsyncTask<String, String, String> {
-
+        class DownloadMusicFile extends AsyncTask<Bundle, String, String> {
             @Override
-            protected String doInBackground(String... musicURL) {
+            protected String doInBackground(Bundle... musicURL) {
                 int count;
                 try {
-                    URL url = new URL(musicURL[0]);
+                    URL url = new URL(musicURL[0].getString("url"));
                     URLConnection connection = url.openConnection();
                     connection.connect();
                     InputStream input = new BufferedInputStream(url.openStream(), 8192);
-                    File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath()+ "/filename.mp3");
+                    File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath()+ "/aaa/kfilenamedd.mp3");
                     OutputStream output = new FileOutputStream(file);
                     Log.e("aaaa",file.getAbsolutePath());
 
@@ -48,7 +50,6 @@ public class MainActivity extends AppCompatActivity {
                     while ((count = input.read(data)) != -1) {
                         output.write(data, 0, count);
                     }
-
                     output.flush();
                     output.close();
                     input.close();
@@ -62,8 +63,11 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             protected void onPostExecute(String s) {
+                Log.e("Error: ","ok");
                 Toast.makeText(MainActivity.this, "Music Download complete.", Toast.LENGTH_SHORT).show();
             }
+
+
         }
 
 }
