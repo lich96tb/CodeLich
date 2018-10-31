@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.lich96tb.myapplication">
+    package="com.example.myapplication">
 
     <application
         android:allowBackup="true"
@@ -16,14 +16,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".hien_thi_nutification"></activity>
-        <receiver android:name=".clickBroadcast">
-            <intent-filter>
-                <action android:name="button"></action>
-                <action android:name="next"></action>
-            </intent-filter>
-        </receiver>
-
     </application>
 
 </manifest>

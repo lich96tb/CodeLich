@@ -1,52 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:padding="10dp"
-    android:gravity="left">
+    android:layout_height="120dp"
+    android:orientation="vertical">
     <ImageView
-        android:layout_marginLeft="10dp"
-        android:id="@+id/imgNoti"
-        android:layout_width="40dp"
-        android:layout_height="40dp" />
+        android:layout_alignParentRight="true"
+        android:id="@+id/imgbackgroundNotification"
+        android:src="@drawable/a3"
+        android:scaleType="centerCrop"
+        android:layout_width="90dp"
+        android:layout_height="match_parent" />
+    <ImageView
+        android:scaleType="centerCrop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/bg_noti"/>
     <LinearLayout
-        android:layout_marginLeft="10dp"
-        android:id="@+id/linearNoti"
-        android:layout_width="wrap_content"
+        android:paddingTop="5dp"
+        android:paddingLeft="10dp"
+        android:id="@+id/layoutSuond"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="left">
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@mipmap/ic_launcher_round"
+            tools:ignore="VectorDrawableCompat" />
 
         <TextView
-            android:id="@+id/txt1"
+            android:id="@+id/txtNameNTF"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="BLUE LIGHT FILTER is OFF"
-            android:textColor="#673AB7"
-            android:textSize="14sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/txt2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Tap to turn ON"
-            android:textSize="12sp"
-            android:textStyle="bold"
-            android:textColor="#0000FF"/>
-
-
+            android:layout_marginLeft="10dp"
+            android:letterSpacing="0.01"
+            android:text="Sleep App "
+            android:textColor="#FFFFFF"
+            android:textSize="14sp" />
     </LinearLayout>
-    <Button
-        android:id="@+id/btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="lich"/>
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/btnNext"
-        android:text="next"/>
 
-</LinearLayout>
+    <RelativeLayout
+        android:paddingBottom="5dp"
+        android:paddingLeft="10dp"
+        android:layout_below="@+id/layoutSuond"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp">
+
+        <TextView
+            android:id="@+id/txtNameMTF"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:letterSpacing="0.01"
+            android:text="Daily Calm"
+            android:textColor="#ffffff"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/txtTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtNameMTF"
+            android:gravity="center_horizontal"
+            android:letterSpacing="0.01"
+            android:text="2:22"
+            android:textColor="#ffffff"
+            android:textSize="14sp" />
+
+
+    </RelativeLayout>
+    <ImageView
+        android:id="@+id/imgPlay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="30dp"
+        android:src="@drawable/ic_pause"
+        tools:ignore="VectorDrawableCompat" />
+</RelativeLayout>
