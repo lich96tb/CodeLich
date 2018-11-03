@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <declare-styleable name="GIFView">
+        <attr name="src" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="GPSImageViewTransport">
+        <attr name="left" format="boolean" />
+    </declare-styleable>
+    <declare-styleable name="GPSImageView">
+        <attr name="clickAble" format="boolean"/>
+    </declare-styleable>
+</resources>

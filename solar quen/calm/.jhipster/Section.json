@@ -1,0 +1,65 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "url",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "categoryId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "parentId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "duration",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "count",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "isFee",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "isBuy",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "order",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "type",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "view",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "urlBackground",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "typeBackground",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20181002023320",
+    "entityTableName": "section",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "microserviceName": "calm"
+}

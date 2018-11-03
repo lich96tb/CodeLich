@@ -23,7 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    String k = "ad";
+    String k = "abc";
     private ImageView iv;
     ProgressBar progressBar;
     private TextView tvProgress;
@@ -76,7 +76,6 @@ public class MainActivity extends AppCompatActivity {
                     public void onProgress(File downloadedFile, int progress, int totalFiles) {
                         Glide.with(MainActivity.this).load(downloadedFile).into(iv);
                     }
-
                     @Override
                     public void onError(Exception e, int progress) {
                         super.onError(e, progress);

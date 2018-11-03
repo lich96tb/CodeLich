@@ -1,0 +1,160 @@
+plugins {
+    id 'com.novoda.static-analysis' version '0.5.2'
+    id 'io.gitlab.arturbosch.detekt' version '1.0.0.RC6-3'
+}
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'androidx.navigation.safeargs'
+
+android {
+    compileSdkVersion rootProject.compileSdkVersion
+    dataBinding {
+        enabled = true
+    }
+    defaultConfig {
+        applicationId "com.bigqsys.music.relax"
+        minSdkVersion rootProject.minSdkVersion
+        targetSdkVersion 22
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        versionCode 1
+        versionName "0.1.5"
+        vectorDrawables.useSupportLibrary true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+	
+	signingConfigs {
+        release {
+            storeFile file("../medoly.jks")
+            storePassword "k9SnEtCtNJ85Mw8"
+            keyAlias "com.melodymediation.sleepstories"
+            keyPassword "com.melodymediation.sleepstories"
+        }
+    }
+	 buildTypes {
+
+        release {
+            signingConfig signingConfigs.release
+        }
+    }
+
+
+
+}
+
+allprojects {
+    repositories {
+        maven { url "https://jitpack.io" }
+    }
+}
+
+dependencies {
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    implementation 'com.android.support:support-v4:28.0.0'
+    kapt "android.arch.persistence.room:compiler:$rootProject.roomVersion"
+    kapt "com.github.bumptech.glide:compiler:$rootProject.glideVersion"
+    implementation "android.arch.lifecycle:extensions:$rootProject.lifecycleVersion"
+    implementation "android.arch.navigation:navigation-fragment-ktx:$rootProject.navigationVersion"
+    implementation "android.arch.navigation:navigation-ui-ktx:$rootProject.navigationVersion"
+    implementation "android.arch.persistence.room:runtime:$rootProject.roomVersion"
+    implementation "android.arch.paging:runtime:$rootProject.pagingRuntimeVersion"
+    implementation "android.arch.paging:rxjava2:$rootProject.pagingRxVersion"
+    implementation "android.arch.work:work-runtime-ktx:$rootProject.workVersion"
+    implementation "androidx.core:core-ktx:$rootProject.ktxVersion"
+    implementation "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
+    implementation "com.android.support:support-v4:$rootProject.supportLibraryVersion"
+    implementation "com.android.support:recyclerview-v7:$rootProject.supportLibraryVersion"
+    implementation "com.android.support:support-vector-drawable:$rootProject.supportLibraryVersion"
+    implementation 'com.android.support.constraint:constraint-layout:1.1.0'
+    implementation "com.android.support.constraint:constraint-layout:$rootProject.constraintLayoutVersion"
+    implementation "com.android.support:design:$rootProject.supportLibraryVersion"
+    implementation "com.github.bumptech.glide:glide:$rootProject.glideVersion"
+    implementation "com.google.code.gson:gson:$rootProject.gsonVersion"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$rootProject.kotlinVersion"
+
+    // Retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.3.0'
+    implementation "com.squareup.retrofit2:converter-gson:2.3.0"
+    implementation 'com.squareup.okhttp3:okhttp:3.9.1'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.9.0'
+
+    //Rx
+
+    implementation 'io.reactivex.rxjava2:rxandroid:2.0.2'
+    implementation 'io.reactivex.rxjava2:rxjava:2.1.10'
+
+    // Testing dependencies
+    androidTestImplementation "com.android.support.test.espresso:espresso-intents:$rootProject.espressoVersion"
+    androidTestImplementation "com.android.support.test.espresso:espresso-contrib:$rootProject.espressoVersion"
+    androidTestImplementation "com.android.support.test.espresso:espresso-core:$rootProject.espressoVersion"
+    androidTestImplementation "com.android.support.test.uiautomator:uiautomator-v18:$uiAutomatorVersion"
+    implementation 'com.android.support:cardview-v7:28.0.0'
+    implementation 'org.greenrobot:eventbus:3.0.0'
+
+    implementation 'de.hdodenhof:circleimageview:2.1.0'
+    implementation 'com.android.support:cardview-v7:24.2.1'
+
+    implementation 'com.jakewharton:butterknife:8.8.1'
+    kapt 'com.jakewharton:butterknife-compiler:8.8.1'
+    implementation 'com.shawnlin:number-picker:2.4.6'
+    implementation 'com.caverock:androidsvg-aar:1.3'
+
+    testImplementation "junit:junit:$rootProject.junitVersion"
+    // Debug dependencies
+    debugImplementation 'com.amitshekhar.android:debug-db:1.0.4'
+
+}
+staticAnalysis {
+
+    penalty none
+
+    checkstyle {
+        toolVersion '8.8'
+        exclude project.fileTree('src/test/java')
+        exclude '**/*.kt'
+        configFile rootProject.file('team-props/checkstyle-modules.xml')
+        includeVariants { variant -> variant.name.contains('debug') }
+    }
+
+    pmd {
+        toolVersion '6.1.0'
+        exclude project.fileTree('src/test/java')
+        ruleSetFiles = rootProject.files('team-props/pmd-rules.xml')
+        ruleSets = []
+        // https://stackoverflow.com/questions/32247190/pmd-exclude-pattern-with-gradle
+        includeVariants { variant -> variant.name.contains('debug') }
+    }
+
+    findbugs {
+        toolVersion '3.0.1'
+        excludeFilter rootProject.file('team-props/findbugs-excludes.xml')
+        includeVariants { variant -> variant.name.contains('debug') }
+    }
+
+    lintOptions {
+        lintConfig rootProject.file('team-props/lint-config.xml')
+        checkReleaseBuilds false
+        warningsAsErrors true
+    }
+
+    detekt {
+        profile('main') {
+            input = "$projectDir/src/main/java"
+            config = rootProject.file('team-props/detekt-config.yml')
+            filters = '.*test.*,.*/resources/.*,.*/tmp/.*'
+            output = "$projectDir/build/reports/detekt"
+        }
+    }
+
+}

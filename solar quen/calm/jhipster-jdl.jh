@@ -1,0 +1,19 @@
+entity Section {
+	name String,
+    url String,
+    categoryId String,
+    parentId String,
+    url String,
+    duration String,
+    count String,
+    isFee String,
+    isBuy String,
+    order Integer,
+    type String,
+    view Long,
+    urlBackground String,
+    typeBackground String,
+}
+
+// Set pagination options
+paginate Section with infinite-scroll
