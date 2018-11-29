@@ -3,4 +3,5 @@ videoview: https://www.techotopia.com/index.php/An_Android_Studio_VideoView_and_
 bieu do tron: https://www.studytutorial.in/android-pie-chart-using-mpandroid-library-tutorial
 bieu do cot: https://www.studytutorial.in/android-bar-chart-or-bar-graph-using-mpandroid-library-tutorial
 quet QR: https://www.studytutorial.in/android-bar-code-qr-code-scanner-tutorial-using-zxing-scanner-library
-RangeSeekBar: https://github.com/Jay-Goo/RangeSeekBar
+RangeSeekBar: https://github.com/Jay-Goo/RangeSeekBar.
+bieu tuong facebook: https://github.com/andob/emojilike-android
