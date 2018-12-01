@@ -1,3 +1,4 @@
+sskey: ssh-keygen -t rsa
 seeekbar: https://stackoverflow.com/questions/16163215/android-styling-seek-bar
 videoview: https://www.techotopia.com/index.php/An_Android_Studio_VideoView_and_MediaController_Tutorial
 bieu do tron: https://www.studytutorial.in/android-pie-chart-using-mpandroid-library-tutorial
