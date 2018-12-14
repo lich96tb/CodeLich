@@ -30,6 +30,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn = findViewById(R.id.btnNumber);
         edt = findViewById(R.id.edtNumber);
         viewModel123 = ViewModelProviders.of(this).get(ViewModel123.class);
+
+
         viewModel123.getA().observe(this, new Observer<Integer>() {
             @Override
             public void onChanged(@Nullable Integer integer) {
