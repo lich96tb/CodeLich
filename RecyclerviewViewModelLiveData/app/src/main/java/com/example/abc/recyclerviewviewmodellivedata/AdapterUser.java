@@ -1,5 +1,6 @@
 package com.example.abc.recyclerviewviewmodellivedata;
 
+import android.arch.lifecycle.ViewModel;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -7,17 +8,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.abc.recyclerviewviewmodellivedata.database.AppDatabase;
 import com.example.abc.recyclerviewviewmodellivedata.database.User;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class AdapterUser extends RecyclerView.Adapter<AdapterUser.ViewModel> {
 
-    private List<User> list;
+    private List<User> list  ;
     private IDelete deleteItem;
 
     public AdapterUser(IDelete deleteItem) {
         this.deleteItem = deleteItem;
+        list=new ArrayList<>();
     }
 
     public AdapterUser(@NonNull List<User> list) {
@@ -33,9 +37,11 @@ public class AdapterUser extends RecyclerView.Adapter<AdapterUser.ViewModel> {
         return new ViewModel(view);
     }
 
-    public void SetData(List<User> listdat) {
-        list = listdat;
-        notifyDataSetChanged();
+    public void SetData(List<User> listdata) {
+        if (listdata != null) {
+            list = listdata;
+            notifyDataSetChanged();
+        }
     }
 
     @Override
@@ -61,7 +67,7 @@ public class AdapterUser extends RecyclerView.Adapter<AdapterUser.ViewModel> {
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    deleteItem.delete(getAdapterPosition());
+                    deleteItem.delete(list.get(getAdapterPosition()).getId());
                 }
             });
         }

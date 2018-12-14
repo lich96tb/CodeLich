@@ -2,9 +2,11 @@ package com.example.abc.recyclerviewviewmodellivedata.database;
 
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.PrimaryKey;
+import android.arch.persistence.room.RoomDatabase;
 
-@Entity
+@Entity(tableName = "User")
 public class User {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
@@ -15,6 +17,12 @@ public class User {
     private String Age;
 
     public User(String name, String age) {
+        this.name = name;
+        Age = age;
+    }
+    @Ignore
+    public User(Long id, String name, String age) {
+        this.id = id;
         this.name = name;
         Age = age;
     }
