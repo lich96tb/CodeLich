@@ -1,5 +1,6 @@
 package com.example.abc.binservice;
 
+import android.app.NotificationManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -40,16 +41,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         //  startService(intent);
-      //  myService = new MyService();
-        if (MethodStatic.isMyServiceRunning(MyService.class, this)) {
-            Log.e("ABSDf ", "  1");
-            //   Toast.makeText(myService, "1", Toast.LENGTH_SHORT).show();
-        } else {
-            // Toast.makeText(myService, "2", Toast.LENGTH_SHORT).show();
-            Log.e("ABSDf ", "  2");
-//            intent = new Intent(MainActivity.this, MyService.class);
-//            bindService(intent, connection, Context.BIND_AUTO_CREATE);
-        }
+        //  myService = new MyService();
     }
 
 
@@ -62,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
 
             case R.id.btnPause:
-               myService.pause();
+                myService.pause();
 
 
                 break;
@@ -71,6 +63,23 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.btnStartService:
                 startService(intent);
+                break;
+            case R.id.btnDisconnectSevice:
+                // unbindService(connection);
+                //stopService(intent);
+
+
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+//                if(myService.activity != null) {
+//                    ServiceCallingActivity.activity.finish();
+//                }
+                if (isBound) {
+                    unbindService(connection);
+                    isBound = false;
+                }
+
+                stopService(intent);
                 break;
         }
     }
@@ -81,5 +90,6 @@ public class MainActivity extends AppCompatActivity {
         intent = new Intent(MainActivity.this, MyService.class);
         intent.setAction(MyService.START_SERVICE);
         bindService(intent, connection, Context.BIND_AUTO_CREATE);
+        startService(intent);
     }
 }

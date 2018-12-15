@@ -51,4 +51,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnNext" />
 
+    <Button
+        android:id="@+id/btnDisconnectSevice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="51dp"
+        android:onClick="clickButton"
+        android:text="stop service"
+        app:layout_constraintStart_toStartOf="@+id/btnStartService"
+        app:layout_constraintTop_toBottomOf="@+id/btnStartService" />
+
 </android.support.constraint.ConstraintLayout>

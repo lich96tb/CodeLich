@@ -114,6 +114,7 @@ public class MyService extends Service {
         startForeground(OPENVPN_STATUS, notification);
 
 
+
     }
 
 
@@ -132,6 +133,7 @@ public class MyService extends Service {
 
         public void pause() {
             mediaPlayer.pause();
+
         }
 
         public void seekto() {
