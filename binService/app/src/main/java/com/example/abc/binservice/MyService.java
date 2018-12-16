@@ -10,6 +10,7 @@ import android.media.MediaPlayer;
 import android.os.Binder;
 import android.os.IBinder;
 import android.util.Log;
+import android.widget.Toast;
 
 public class MyService extends Service {
     private static final String NOTIFICATION_CHANNEL_ID = "ljdk";
@@ -22,7 +23,7 @@ public class MyService extends Service {
         super.onCreate();
         binder = new MyBinder();
         myPlay = new MyPlay(this);
-        showNotification();
+       // showNotification();
 
 
     }
@@ -33,12 +34,12 @@ public class MyService extends Service {
         return binder;
     }
 
-//    @Override
-//    public int onStartCommand(Intent intent, int flags, int startId) {
-//
-//        Toast.makeText(this, "dddddddd123", Toast.LENGTH_SHORT).show();
-//        return START_STICKY;
-//    }
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+        showNotification();
+        Toast.makeText(this, "dddddddd123", Toast.LENGTH_SHORT).show();
+        return START_STICKY;
+    }
 
     public class MyBinder extends Binder {
 

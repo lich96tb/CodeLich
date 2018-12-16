@@ -1,5 +1,6 @@
 package com.example.abc.binservice;
 
+import android.app.ActivityManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -21,9 +22,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         intent = new Intent(MainActivity.this, MyService.class);
-      //  startService(intent);
+      // startService(intent);
         myService = new MyService();
-        if (MethodStatic.isMyServiceRunning(MyService.class,this)){
+        if (isMyServiceRunning(MyService.class)){
             Log.e("ABSDf ","  1");
          //   Toast.makeText(myService, "1", Toast.LENGTH_SHORT).show();
         }else {
@@ -45,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
                     isBound = true;
                 }
             };
-            bindService(intent, connection, Context.BIND_AUTO_CREATE);
+         bindService(intent, connection, Context.BIND_AUTO_CREATE);
         }
     }
 
@@ -67,4 +68,15 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
     }
+
+    private boolean isMyServiceRunning(Class<?> serviceClass) {
+        ActivityManager manager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
+        for (ActivityManager.RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
+            if (serviceClass.getName().equals(service.service.getClassName())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 }
