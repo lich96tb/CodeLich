@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="user"
+            type="com.example.abc.datatbinding.User" />
+
+        <variable
+            name="abc"
+            type="com.example.abc.datatbinding.MainActivity.MyPresenter" />
+
+        <import type="com.example.abc.datatbinding.importclass.BindingUtils" />
+
+
+    </data>
+
+    <LinearLayout xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".MainActivity"
+        tools:showIn="@layout/activity_main">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{user.name}" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{user.email}" />
+
+        <EditText
+            android:id="@+id/edtName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:addTextChangedListener="@{user.watcher}"
+            android:inputType="number"
+            android:hint="so a"
+            android:text="@{user.edtSoa}" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{user.edtSob}"
+            android:addTextChangedListener="@{user.watcherEdtb}"
+            android:hint="so b"
+            android:inputType="number"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{BindingUtils.sumab(user.edtSoa,user.edtSob)}" />
+
+        <Button
+            android:id="@+id/d"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:onClick="@{() -> abc.onLisClicka(user)}"
+            android:text="Using Listener Binding" />
+
+        <Button
+            android:id="@+id/dd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:onLongClick="@{() -> abc.onLisClickaa()}"
+            android:text="Using Listener Binding" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:profileImage="@{user.image}"
+            bind:srcCompat="@tools:sample/backgrounds/scenic" />
+
+
+    </LinearLayout>
+</layout>

@@ -1,5 +1,6 @@
 package com.example.abc.binservice;
 
+import android.annotation.TargetApi;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -8,6 +9,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Binder;
+import android.os.Build;
 import android.os.IBinder;
 import android.util.Log;
 import android.widget.Toast;
@@ -70,6 +72,7 @@ public class MyService extends Service {
     }
 
 
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
     private void showNotification() {
 
         String ns = Context.NOTIFICATION_SERVICE;
@@ -85,7 +88,11 @@ public class MyService extends Service {
         nbuilder.setContentText("kskjkdfsd");
         nbuilder.setOnlyAlertOnce(true);
         nbuilder.setOngoing(true);
-        //   nbuilder.setContentIntent(getLogPendingIntent());
+
+       // nbuilder.setWhen();
+        nbuilder.setShowWhen(true);
+
+      //  nbuilder.setContentIntent(getLogPendingIntent());
         nbuilder.setSmallIcon(icon);
 
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
