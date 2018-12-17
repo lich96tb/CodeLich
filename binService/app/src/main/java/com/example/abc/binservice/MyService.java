@@ -26,7 +26,7 @@ public class MyService extends Service {
         super.onCreate();
         binder = new MyBinder();
         myPlay = new MyPlay(this);
-        showNotification();
+       // showNotification();
 
 
     }
@@ -38,10 +38,15 @@ public class MyService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
+<<<<<<< HEAD
+        showNotification();
+        Toast.makeText(this, "dddddddd123", Toast.LENGTH_SHORT).show();
+=======
 
         Toast.makeText(this, "dddddddd123", Toast.LENGTH_SHORT).show();
       //  play();
         showNotification();
+>>>>>>> 9d407ca9483b7bcfb81d9b9133532bdea615b9ea
         return START_STICKY;
     }
 
