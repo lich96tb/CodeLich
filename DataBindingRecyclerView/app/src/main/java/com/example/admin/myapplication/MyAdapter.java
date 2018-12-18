@@ -44,7 +44,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
             this.binding = binding;
         }
         public void bind(Object obj) {
-            binding.setVariable(BR.obj,obj);
+            binding.setVariable(com.example.admin.myapplication.BR.obj,obj);
             binding.executePendingBindings();
         }
     }
