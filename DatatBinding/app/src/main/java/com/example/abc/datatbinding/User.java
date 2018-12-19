@@ -16,7 +16,7 @@ import com.bumptech.glide.Glide;
 import java.util.Objects;
 
 
-public class User extends BaseObservable {
+public class User {
 
     //    // profile meta fields are ObservableField, will update the UI
 //    // whenever a new value is set

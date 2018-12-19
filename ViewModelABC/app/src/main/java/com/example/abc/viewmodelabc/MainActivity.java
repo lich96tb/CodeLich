@@ -13,7 +13,7 @@ import com.example.abc.viewmodelabc.viewmodel.ViewmodelFragment;
 
 public class MainActivity extends AppCompatActivity {
     private ScoreViewModel mViewModel;
-    private ViewmodelFragment model2;
+
     private TextView txtTeamA, txtTeamB;
 
     @Override
@@ -22,7 +22,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         initView();
         mViewModel = ViewModelProviders.of(this).get(ScoreViewModel.class);
-        model2 = ViewModelProviders.of(this).get(ViewmodelFragment.class);
         displayForTeamA(mViewModel.scoreTeamA);
         displayForTeamB(mViewModel.scoreTeamB);
     }

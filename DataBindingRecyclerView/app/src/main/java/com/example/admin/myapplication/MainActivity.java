@@ -1,5 +1,6 @@
 package com.example.admin.myapplication;
 
+import android.app.Activity;
 import android.databinding.DataBindingUtil;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -32,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
                 new TemperatureData("hoa", "han"));
         adapter = new MyAdapter(item);
         recyclerView.setAdapter(adapter);
+
         Event event = new Event();
 
         binding.setAbc(event);

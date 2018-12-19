@@ -24,12 +24,6 @@ public class AdapterUser extends RecyclerView.Adapter<AdapterUser.ViewModel> {
         list=new ArrayList<>();
     }
 
-    public AdapterUser(@NonNull List<User> list) {
-        this.list = list;
-    }
-
-    public AdapterUser() {
-    }
 
     @Override
     public ViewModel onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
