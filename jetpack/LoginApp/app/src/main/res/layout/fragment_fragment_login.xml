@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="login"
+            type="com.example.admin.loginapp.FragmentLogin.ClickLogin" />
+
+        <variable
+            name="viewModel"
+            type="com.example.admin.loginapp.jetpack.ViewModelLogin" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".FragmentLogin">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Name"
+            android:addTextChangedListener="@{viewModel.watcheName}"
+            android:text="@{viewModel.name}" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email"
+            android:addTextChangedListener="@{viewModel.watcherPass}"
+            android:text="@{viewModel.email}" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="PassWord"
+            android:onClick="@{()->login.clickLogin()}"/>
+
+    </LinearLayout>
+</layout>

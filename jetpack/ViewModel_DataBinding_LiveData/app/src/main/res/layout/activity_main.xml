@@ -47,6 +47,16 @@
             android:onClick="@{() ->handlers.onLisClick()}"
             android:text="Click Me"
             tools:ignore="HardcodedText" />
+
+        <Button
+            android:id="@+id/buttonad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:onClick="@{() ->handlers.nextActivity()}"
+            android:text="Click Me"
+            tools:ignore="HardcodedText" />
+
     </LinearLayout>
 </layout>
 

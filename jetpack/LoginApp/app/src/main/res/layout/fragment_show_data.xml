@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+<data>
+    <variable
+        name="showData"
+        type="com.example.admin.loginapp.ShowData"/>
+    <variable
+        name="userViewModel"
+        type="com.example.admin.loginapp.jetpack.ViewModelLogin"/>
+    <variable
+        name="clickShowData"
+        type="com.example.admin.loginapp.ShowData.ClickShow"/>
+</data>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@{userViewModel.name}"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@{userViewModel.email}"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="@{()->clickShowData.clickabc()}"/>
+</LinearLayout>
+</layout>

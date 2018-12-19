@@ -41,6 +41,9 @@ public class MainActivity extends AppCompatActivity {
             userViewModel.LoginUser();
             binding.setUserViewModel(userViewModel);
         }
+        public void nextActivity(){
+            Toast.makeText(MainActivity.this, "dddddddddd", Toast.LENGTH_SHORT).show();
+        }
     }
 
 }
