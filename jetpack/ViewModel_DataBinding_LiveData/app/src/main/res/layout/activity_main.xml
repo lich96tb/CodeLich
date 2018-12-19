@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="main"
+            type="com.example.abc.viewmodel_databinding_livedata.MainActivity" />
+
+        <variable
+            name="handlers"
+            type="com.example.abc.viewmodel_databinding_livedata.MainActivity.MyPresenter" />
+
+        <variable
+            name="userViewModel"
+            type="com.example.abc.viewmodel_databinding_livedata.UserViewModel" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/edtName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:addTextChangedListener="@{userViewModel.watcherName}"
+            android:hint="Enter name"
+            android:text="@{userViewModel.name}"
+            tools:ignore="HardcodedText" />
+
+        <EditText
+            android:id="@+id/edtPassWord"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:addTextChangedListener="@{userViewModel.watcherPass}"
+            android:hint="Enter PassWord"
+            android:text="@{userViewModel.email}"
+            tools:ignore="HardcodedText" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:onClick="@{() ->handlers.onLisClick()}"
+            android:text="Click Me"
+            tools:ignore="HardcodedText" />
+    </LinearLayout>
+</layout>
+
