@@ -1,10 +1,6 @@
 package com.example.abc.binservice;
 
-<<<<<<< HEAD
 import android.app.ActivityManager;
-=======
-import android.app.NotificationManager;
->>>>>>> 9d407ca9483b7bcfb81d9b9133532bdea615b9ea
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -42,7 +38,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-<<<<<<< HEAD
         intent = new Intent(MainActivity.this, MyService.class);
       // startService(intent);
         myService = new MyService();
@@ -70,12 +65,6 @@ public class MainActivity extends AppCompatActivity {
             };
          bindService(intent, connection, Context.BIND_AUTO_CREATE);
         }
-=======
-
-
-        //  startService(intent);
-        //  myService = new MyService();
->>>>>>> 9d407ca9483b7bcfb81d9b9133532bdea615b9ea
     }
 
 
@@ -118,7 +107,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-<<<<<<< HEAD
     private boolean isMyServiceRunning(Class<?> serviceClass) {
         ActivityManager manager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
         for (ActivityManager.RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
@@ -129,14 +117,4 @@ public class MainActivity extends AppCompatActivity {
         return false;
     }
 
-=======
-    @Override
-    protected void onStart() {
-        super.onStart();
-        intent = new Intent(MainActivity.this, MyService.class);
-        intent.setAction(MyService.START_SERVICE);
-        bindService(intent, connection, Context.BIND_AUTO_CREATE);
-        startService(intent);
-    }
->>>>>>> 9d407ca9483b7bcfb81d9b9133532bdea615b9ea
 }
