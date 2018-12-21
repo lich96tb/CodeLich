@@ -23,6 +23,7 @@ public class MyService extends Service {
     public static final String START_SERVICE = "de.blinkt.openvpn.START_SERVICE";
     private NotificationManager mNotificationManager;
     private Notification.Builder nbuilder;
+    private Notification notification;
 
     @Override
     public void onCreate() {
@@ -37,6 +38,7 @@ public class MyService extends Service {
     public IBinder onBind(Intent intent) {
         return binder;
     }
+
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         showNotification1();
@@ -55,9 +57,9 @@ public class MyService extends Service {
             nbuilder.setChannelId(NOTIFICATION_CHANNEL_ID);
             mNotificationManager.createNotificationChannel(notificationChannel);
         }
-       // mNotificationManager.notify(0, nbuilder.build());
+        // mNotificationManager.notify(0, nbuilder.build());
 
-       Notification notification = nbuilder.getNotification();
+        notification = nbuilder.getNotification();
         startForeground(OPENVPN_STATUS, notification);
 
     }
@@ -82,7 +84,9 @@ public class MyService extends Service {
 
     public void hidenNotification() {
         stopForeground(false);
-        mNotificationManager.cancel(OPENVPN_STATUS);
+        mNotificationManager.notify(OPENVPN_STATUS, notification);
+        //hủy hẳn notificcation
+        //mNotificationManager.cancel(OPENVPN_STATUS);
     }
 
 
