@@ -101,18 +101,6 @@ public class MyService extends Service {
             mNotificationManager.createNotificationChannel(notificationChannel);
         }
 
-
-
-
-//        // Try to set the priority available since API 16 (Jellybean)
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN)
-//            jbNotificationExtras(lowpriority, nbuilder);
-//
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
-//            lpNotificationExtras(nbuilder);
-
-
-        @SuppressWarnings("deprecation")
         Notification notification = nbuilder.getNotification();
 
 
@@ -126,8 +114,6 @@ public class MyService extends Service {
 
     class MyPlay {
         private MediaPlayer mediaPlayer;
-
-        //them bai hat
         private MyPlay(Context context) {
             mediaPlayer = MediaPlayer.create(context, R.raw.nguoitungthuon);
             mediaPlayer.setLooping(true);

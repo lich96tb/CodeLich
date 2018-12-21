@@ -1,0 +1,4 @@
+#Fri Dec 21 08:42:01 ICT 2018
+base.0=E\:\\CodeLich\\jetpack\\MyApplication\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\1
+path.0=classes.dex
+renamed.0=classes.dex
