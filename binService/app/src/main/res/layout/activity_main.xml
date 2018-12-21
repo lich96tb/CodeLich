@@ -40,6 +40,18 @@
         app:layout_constraintTop_toBottomOf="@+id/btnPause" />
 
     <Button
+        android:id="@+id/btnHiden"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="97dp"
+        android:layout_marginRight="97dp"
+        android:text="Hiden notification"
+        android:onClick="clickButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnDisconnectSevice" />
+
+    <Button
         android:id="@+id/btnStartService"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -60,5 +72,6 @@
         android:text="stop service"
         app:layout_constraintStart_toStartOf="@+id/btnStartService"
         app:layout_constraintTop_toBottomOf="@+id/btnStartService" />
+
 
 </android.support.constraint.ConstraintLayout>
