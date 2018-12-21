@@ -15,45 +15,14 @@ import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
-
-    private boolean isBound = false;
     private MyService myService;
     private Intent intent;
-//    private ServiceConnection connection = new ServiceConnection() {
-//
-//        // Phương thức này được hệ thống gọi khi kết nối tới service bị lỗi
-//        @Override
-//        public void onServiceDisconnected(ComponentName name) {
-//            isBound = false;
-//        }
-//
-//        // Phương thức này được hệ thống gọi khi kết nối tới service thành công
-//        @Override
-//        public void onServiceConnected(ComponentName name, IBinder service) {
-//            MyService.MyBinder binder = (MyService.MyBinder) service;
-//            myService = binder.getService(); // lấy đối tượng MyService
-//            isBound = true;
-//        }
-//    };
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        myService = new MyService();
-        //  intent = new Intent(MainActivity.this, MyService.class);
-
-        // startService(intent);
-        //    bindService(intent, connection, Context.BIND_AUTO_CREATE);
-
-    }
-
     private ServiceConnection connection = new ServiceConnection() {
 
         // Phương thức này được hệ thống gọi khi kết nối tới service bị lỗi
         @Override
         public void onServiceDisconnected(ComponentName name) {
-            isBound = false;
+
         }
 
         // Phương thức này được hệ thống gọi khi kết nối tới service thành công
@@ -61,11 +30,10 @@ public class MainActivity extends AppCompatActivity {
         public void onServiceConnected(ComponentName name, IBinder service) {
             MyService.MyBinder binder = (MyService.MyBinder) service;
             myService = binder.getService(); // lấy đối tượng MyService
-            isBound = true;
+
         }
     };
 
-<<<<<<< HEAD
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,18 +41,6 @@ public class MainActivity extends AppCompatActivity {
         myService = new MyService();
 
     }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        if (intent==null){
-            intent=new Intent(this,MyService.class);
-            bindService(intent, connection, Context.BIND_AUTO_CREATE);
-            startService(intent);
-        }
-    }
-=======
->>>>>>> f9fca1f4800541fa09135c22f742d775331b846c
 
     public void clickButton(View view) {
         switch (view.getId()) {
@@ -111,17 +67,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-<<<<<<< HEAD
-=======
-//    private boolean isMyServiceRunning(Class<?> serviceClass) {
-//        ActivityManager manager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
-//        for (ActivityManager.RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
-//            if (serviceClass.getName().equals(service.service.getClassName())) {
-//                return true;
-//            }
-//        }
-//        return false;
-//    }
+
 
 
     @Override
@@ -129,11 +75,11 @@ public class MainActivity extends AppCompatActivity {
         super.onStart();
         if (intent == null) {
             intent = new Intent(this, MyService.class);
-            bindService(intent, connection, Context.BIND_AUTO_CREATE);
+          bindService(intent, connection, Context.BIND_AUTO_CREATE);
             startService(intent);
         }
     }
->>>>>>> f9fca1f4800541fa09135c22f742d775331b846c
+
 
 
 
