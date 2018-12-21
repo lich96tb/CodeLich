@@ -16,17 +16,19 @@ import android.widget.Toast;
 
 public class MyService extends Service {
     private static final String NOTIFICATION_CHANNEL_ID = "ljdk";
-    private static final int OPENVPN_STATUS = 1;
+    private static final int OPENVPN_STATUS = 0;
     private MyPlay myPlay;
     private IBinder binder;
     public static final String START_SERVICE = "de.blinkt.openvpn.START_SERVICE";
+    private NotificationManager mNotificationManager;
+    private android.app.Notification.Builder nbuilder;
 
     @Override
     public void onCreate() {
         super.onCreate();
         binder = new MyBinder();
         myPlay = new MyPlay(this);
-       // showNotification();
+        showNotification();
 
 
     }
@@ -39,7 +41,7 @@ public class MyService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
 
-        showNotification();
+
         Toast.makeText(this, "dddddddd123", Toast.LENGTH_SHORT).show();
         return START_STICKY;
     }
@@ -64,6 +66,16 @@ public class MyService extends Service {
         myPlay.seekto();
     }
 
+    public void hidenNotification() {
+        stopForeground(true);
+        mNotificationManager.notify(OPENVPN_STATUS,nbuilder.getNotification());
+
+
+        //huy notifi truc tiep khi service dang chay
+//        stopForeground(false);
+//        mNotificationManager.cancel(OPENVPN_STATUS);
+    }
+
     @Override
     public void onDestroy() {
         super.onDestroy();
@@ -74,24 +86,25 @@ public class MyService extends Service {
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
     private void showNotification() {
 
-        String ns = Context.NOTIFICATION_SERVICE;
-        NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+
+        mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
 
         //int icon = getIconByConnectionStatus(status);
         int icon = R.drawable.ic_launcher_background;
-        android.app.Notification.Builder nbuilder = new Notification.Builder(this);
+        nbuilder = new Notification.Builder(this);
 
         nbuilder.setContentTitle(getString(R.string.notifcation_title_notconnect));
 
         nbuilder.setContentText("kskjkdfsd");
         nbuilder.setOnlyAlertOnce(true);
         nbuilder.setOngoing(true);
+        nbuilder.setAutoCancel(true);
 
-       // nbuilder.setWhen();
+        // nbuilder.setWhen();
         nbuilder.setShowWhen(true);
 
-      //  nbuilder.setContentIntent(getLogPendingIntent());
+        //  nbuilder.setContentIntent(getLogPendingIntent());
         nbuilder.setSmallIcon(icon);
 
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
@@ -102,23 +115,11 @@ public class MyService extends Service {
         }
 
 
-
-
-//        // Try to set the priority available since API 16 (Jellybean)
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN)
-//            jbNotificationExtras(lowpriority, nbuilder);
-//
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
-//            lpNotificationExtras(nbuilder);
-
-
         @SuppressWarnings("deprecation")
         Notification notification = nbuilder.getNotification();
-
-
+        stopForeground(false);
         mNotificationManager.notify(OPENVPN_STATUS, notification);
-        startForeground(OPENVPN_STATUS, notification);
-
+    //    startForeground(OPENVPN_STATUS, notification);
 
 
     }
@@ -143,7 +144,7 @@ public class MyService extends Service {
         }
 
         public void seekto() {
-            mediaPlayer.seekTo(10000);
+            mediaPlayer.seekTo(120000);
         }
     }
 }
