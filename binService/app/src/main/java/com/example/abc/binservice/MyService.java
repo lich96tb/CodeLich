@@ -11,6 +11,7 @@ import android.media.MediaPlayer;
 import android.os.Binder;
 import android.os.Build;
 import android.os.IBinder;
+import android.support.annotation.RequiresApi;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -21,13 +22,13 @@ public class MyService extends Service {
     private IBinder binder;
     public static final String START_SERVICE = "de.blinkt.openvpn.START_SERVICE";
     private NotificationManager mNotificationManager;
+    private Notification.Builder nbuilder;
 
     @Override
     public void onCreate() {
         super.onCreate();
         binder = new MyBinder();
         myPlay = new MyPlay(this);
-        // showNotification();
 
 
     }
@@ -36,18 +37,32 @@ public class MyService extends Service {
     public IBinder onBind(Intent intent) {
         return binder;
     }
-
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-
-        showNotification();
-        Toast.makeText(this, "dddddddd123", Toast.LENGTH_SHORT).show();
+        showNotification1();
         return START_STICKY;
     }
 
+    private void showNotification1() {
+        mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        nbuilder = new Notification.Builder(this);
+        nbuilder.setSmallIcon(R.drawable.ic_launcher_background)
+                .setContentTitle("My notification")
+                .setContentText("Hello World!");
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            int importance = NotificationManager.IMPORTANCE_LOW;
+            NotificationChannel notificationChannel = new NotificationChannel(NOTIFICATION_CHANNEL_ID, "NOTIFICATION_CHANNEL_NAME", importance);
+            nbuilder.setChannelId(NOTIFICATION_CHANNEL_ID);
+            mNotificationManager.createNotificationChannel(notificationChannel);
+        }
+       // mNotificationManager.notify(0, nbuilder.build());
+
+       Notification notification = nbuilder.getNotification();
+        startForeground(OPENVPN_STATUS, notification);
+
+    }
+
     public class MyBinder extends Binder {
-
-
         public MyService getService() {
             return MyService.this;
         }
@@ -64,59 +79,10 @@ public class MyService extends Service {
     public void seekto() {
         myPlay.seekto();
     }
-    public void hidenNotification(){
-        stopForeground( false );
+
+    public void hidenNotification() {
+        stopForeground(false);
         mNotificationManager.cancel(OPENVPN_STATUS);
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        Log.e("ADDDD ", " onDestroy");
-    }
-
-
-    @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
-    private void showNotification() {
-
-
-        mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-
-
-        //int icon = getIconByConnectionStatus(status);
-        int icon = R.drawable.ic_launcher_background;
-        android.app.Notification.Builder nbuilder = new Notification.Builder(this);
-
-        nbuilder.setContentTitle(getString(R.string.notifcation_title_notconnect));
-
-        nbuilder.setContentText("kskjkdfsd");
-        nbuilder.setOnlyAlertOnce(true);
-        nbuilder.setOngoing(true);
-        nbuilder.setAutoCancel(true);
-
-        // nbuilder.setWhen();
-        nbuilder.setShowWhen(true);
-
-        //  nbuilder.setContentIntent(getLogPendingIntent());
-        nbuilder.setSmallIcon(icon);
-
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-            int importance = NotificationManager.IMPORTANCE_LOW;
-            NotificationChannel notificationChannel = new NotificationChannel(NOTIFICATION_CHANNEL_ID, "NOTIFICATION_CHANNEL_NAME", importance);
-            nbuilder.setChannelId(NOTIFICATION_CHANNEL_ID);
-            mNotificationManager.createNotificationChannel(notificationChannel);
-        }
-
-
-        @SuppressWarnings("deprecation")
-        Notification notification = nbuilder.getNotification();
-
-
-        mNotificationManager.notify(OPENVPN_STATUS, notification);
-        startForeground(OPENVPN_STATUS, notification);
-
-
-
     }
 
 
