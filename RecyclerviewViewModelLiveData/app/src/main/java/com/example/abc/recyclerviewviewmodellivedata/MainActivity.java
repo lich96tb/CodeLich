@@ -35,12 +35,12 @@ public class MainActivity extends AppCompatActivity implements IDelete {
         viewModelUser = ViewModelProviders.of(this).get(ViewModelUser.class);
 
         //khi them vao list
-        viewModelUser.getUserMutableLiveData().observe(this, new Observer<List<User>>() {
-            @Override
-            public void onChanged(@Nullable List<User> users) {
-                adapterUser.SetData(users);
-            }
-        });
+//        viewModelUser.getUserMutableLiveData().observe(this, new Observer<List<User>>() {
+//            @Override
+//            public void onChanged(@Nullable List<User> users) {
+//                adapterUser.SetData(users);
+//            }
+//        });
 
 
         //them vao list khi lang ngh tu db

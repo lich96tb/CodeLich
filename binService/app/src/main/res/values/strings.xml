@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">binService</string>
     <string name="notifcation_title_notconnect">du the nao di nua</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

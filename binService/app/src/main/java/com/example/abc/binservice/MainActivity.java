@@ -68,20 +68,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
-
     @Override
     protected void onStart() {
         super.onStart();
         if (intent == null) {
             intent = new Intent(this, MyService.class);
-          bindService(intent, connection, Context.BIND_AUTO_CREATE);
+            bindService(intent, connection, Context.BIND_AUTO_CREATE);
             startService(intent);
         }
     }
 
 
-
-
-
+    public void clickchuyentrang(View view) {
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragme,new BlankFragment()).commit();
+    }
 }

@@ -17,24 +17,24 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class ViewModelUser extends AndroidViewModel {
-    private MutableLiveData<List<User>> userMutableLiveData = new MutableLiveData<>();
+//    private MutableLiveData<List<User>> userMutableLiveData = new MutableLiveData<>();
     private UserDao userDao;
-    private ExecutorService executorService;
+///    private ExecutorService executorService;
 
     public ViewModelUser(@NonNull Application application) {
         super(application);
         userDao = AppDatabase.getAppDatabase(application).userDao();
-        executorService = Executors.newSingleThreadExecutor();
+     //   executorService = Executors.newSingleThreadExecutor();
     }
 
     LiveData<List<User>> getAllUser() {
         return userDao.getListUse();
     }
 
-    public MutableLiveData<List<User>> getUserMutableLiveData() {
-        if (userMutableLiveData == null) {
-            userMutableLiveData = new MutableLiveData<>();
-        }
-        return userMutableLiveData;
-    }
+//    public MutableLiveData<List<User>> getUserMutableLiveData() {
+//        if (userMutableLiveData == null) {
+//            userMutableLiveData = new MutableLiveData<>();
+//        }
+//        return userMutableLiveData;
+//    }
 }

@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
+    android:id="@+id/fragme"
     tools:layout_editor_absoluteY="81dp">
 
     <Button
@@ -72,6 +73,11 @@
         android:text="stop service"
         app:layout_constraintStart_toStartOf="@+id/btnStartService"
         app:layout_constraintTop_toBottomOf="@+id/btnStartService" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="chuyen sang fragment"
+        android:onClick="clickchuyentrang"/>
 
 
 </android.support.constraint.ConstraintLayout>
