@@ -45,8 +45,6 @@ public class User {
         Glide.with(view.getContext())
                 .load(imageUrl)
                 .into(view);
-
-
     }
 
     public TextWatcher watcher = new TextWatcher() {
