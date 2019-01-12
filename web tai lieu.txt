@@ -6,3 +6,4 @@ bieu do cot: https://www.studytutorial.in/android-bar-chart-or-bar-graph-using-m
 quet QR: https://www.studytutorial.in/android-bar-code-qr-code-scanner-tutorial-using-zxing-scanner-library
 RangeSeekBar: https://github.com/Jay-Goo/RangeSeekBar.
 bieu tuong facebook: https://github.com/andob/emojilike-android
+ViewPager: https://github.com/crosswall/Android-Coverflow

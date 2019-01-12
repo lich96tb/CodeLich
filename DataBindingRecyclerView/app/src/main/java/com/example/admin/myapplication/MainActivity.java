@@ -37,7 +37,6 @@ public class MainActivity extends AppCompatActivity {
         Event event = new Event();
 
         binding.setAbc(event);
-
     }
 
     public class Event {
