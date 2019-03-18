@@ -1,5 +1,6 @@
 package com.example.abc.recyclerviewviewmodellivedata;
 
+import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.support.annotation.Nullable;
@@ -7,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 
 import com.example.abc.recyclerviewviewmodellivedata.database.AppDatabase;
@@ -35,21 +37,21 @@ public class MainActivity extends AppCompatActivity implements IDelete {
         viewModelUser = ViewModelProviders.of(this).get(ViewModelUser.class);
 
         //khi them vao list
-//        viewModelUser.getUserMutableLiveData().observe(this, new Observer<List<User>>() {
-//            @Override
-//            public void onChanged(@Nullable List<User> users) {
-//                adapterUser.SetData(users);
-//            }
-//        });
-
-
-        //them vao list khi lang ngh tu db
-        viewModelUser.getAllUser().observe(this, new Observer<List<User>>() {
+        viewModelUser.getUserMutableLiveData().observe(this, new Observer<List<User>>() {
             @Override
             public void onChanged(@Nullable List<User> users) {
                 adapterUser.SetData(users);
             }
         });
+
+
+        //them vao list khi lang ngh tu db
+//        viewModelUser.getAllUser().observe(this, new Observer<List<User>>() {
+//            @Override
+//            public void onChanged(@Nullable List<User> users) {
+//                adapterUser.SetData(users);
+//            }
+//        });
     }
 
 
@@ -63,12 +65,12 @@ public class MainActivity extends AppCompatActivity implements IDelete {
     @Override
     public void delete(long position) {
         //xoa tren db
-        db.userDao().Delete(position);
+      //  db.userDao().Delete(position);
         //delete truc tiep
 
-//        List listNew = viewModelUser.getUserMutableLiveData().getValue();
-//        listNew.remove(position);
-//        viewModelUser.getUserMutableLiveData().setValue(listNew);
+        List listNew = viewModelUser.getUserMutableLiveData().getValue();
+        listNew.remove(position);
+        viewModelUser.getUserMutableLiveData().setValue(listNew);
     }
 
     public void addAll(View view) {
@@ -76,6 +78,8 @@ public class MainActivity extends AppCompatActivity implements IDelete {
         list.add(new User("lich", "1"));
         list.add(new User("Lan", "2"));
         list.add(new User("Hoa", "3"));
-        db.userDao().saveAll(list);
+        viewModelUser.setData(list);
+
+      //  db.userDao().saveAll(list);
     }
 }

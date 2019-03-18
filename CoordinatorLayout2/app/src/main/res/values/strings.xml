@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">CoordinatorLayout2</string>
+    <string name="appbar_scrolling_view_behavior">Các bạn hãy chú ý đến hai param app:layout_scrollFlags và app:layout_behavior. Trong đó thì:  app:layout_scrollFlags: định nghĩa các flag mà AppBarLayout sẽ scroll. Các giá trị của param này mình sẽ nói ở phần AppBarLayout. app:layout_behavior: là param của thành phần còn lại trong CoordinatorLayout. Thường được khai báo với giá trị app:layout_behavior=\"@string/appbar_scrolling_view_behavior\" AppBarLayout Về cơ bản thì AppBarLayout là một vertical LinearLayout có cài đặt sẵn một số tính năng của app bar trong material design khi nó được scroll.</string>
+    <string name="lorem">Chúng ta có thể quản lý hành vì của con trực tiếp của AppBarLayout với param layout_scroolFlags. Giá trị scroll có mặt ở hầu hết các view. Nếu nó không được định nghĩa ở view con nào thì các view con đó của AppBarLayout sẽ giữ nguyên vị trí và cho phép nội dung scrollable scroll phía sau nó.</string>
+</resources>

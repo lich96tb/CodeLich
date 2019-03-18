@@ -21,7 +21,8 @@ public class FragmentLogin extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        FragmentFragmentLoginBinding binding = DataBindingUtil.inflate(inflater, R.layout.fragment_fragment_login, container, false);
+      //  FragmentFragmentLoginBinding binding = DataBindingUtil.inflate(inflater, R.layout.fragment_fragment_login, container, false);
+        FragmentFragmentLoginBinding binding = FragmentFragmentLoginBinding.inflate(inflater, container, false);
         viewModelLogin = ViewModelProviders.of(getActivity()).get(ViewModelLogin.class);
         ClickLogin clickLogin = new ClickLogin();
         binding.setLogin(clickLogin);

@@ -14,7 +14,9 @@ import android.view.View;
 public class GraphicView extends View {
     Paint mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
     Bitmap mBitmap;
-
+    float width = 100;
+    float stopX;
+    float stopY;
     public GraphicView(Context context) {
         super(context);
     }
@@ -24,6 +26,53 @@ public class GraphicView extends View {
         initPaint();
     }
 
+    public void setValue(int k) {
+        if (k==1){
+            stopY=stopY+100;
+        }
+
+     mPaint.setColor(Color.RED);
+//        width = 500;
+//        mPaint.setAlpha(255);
+//        mPaint.setStrokeWidth(50);
+//        //to het
+//        //  mPaint.setStyle(Paint.Style.FILL_AND_STROKE);
+//
+//        //to het trong hinh
+//        //   mPaint.setStyle(Paint.Style.FILL);
+//
+//        //chi to nhung cho nao duoc ve
+//        mPaint.setStyle(Paint.Style.STROKE);
+
+
+        stopY = 0;
+        stopX = getWidth() / 2;
+        new Thread() {
+            public void run() {
+              while (true){
+
+
+                    try {
+                        if (stopY<getWidth()&&stopX<getWidth()){
+                            stopY=stopY+10;
+                            stopX=stopX+10;
+                        }else if (stopY>=getHeight()/2){
+                            stopY=stopY+10;
+                            stopX=stopX-10;
+                        }
+
+                       invalidate();
+                        Thread.sleep(50);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }.start();
+
+
+
+    }
 
     @Override
     protected void onDraw(Canvas canvas) {
@@ -34,20 +83,20 @@ public class GraphicView extends View {
 //        canvas.drawPoint(x, y, mPaint);
 
 ////Draw Line
-//        for(int i=0;i<100;i++){
-//        float startX = 30;
-//        float startY = 30;
-//        float stopX = getWidth()-30;
-//        float stopY = getHeight()-30;
-//        canvas.drawLine(startX, startY, stopX, stopY, mPaint);}
+//        for(int i=0;i<10;i++){
+        float startX = getWidth()/2;
+        float startY = getHeight()/2;
+
+        canvas.drawLine(startX, startY, stopX, stopY, mPaint);
+    //}
 
 //Draw Rect
-        float width = 200;
-        float height = 200;
-
-        float left = (getWidth() - width) / 2.0f;
-        float top = (getHeight() - height) / 2.0f;
-        canvas.drawRect(left, top, left + width, top + height, mPaint);
+//         width = 500;
+//        float height = 200;
+//
+//        float left = (getWidth() - width) / 2.0f;
+//        float top = (getHeight() - height) / 2.0f;
+//        canvas.drawRect(left, top, left + width, top + height, mPaint);
 
 
 //        //Draw Circle
@@ -55,7 +104,6 @@ public class GraphicView extends View {
 //        float cx = getWidth()/2;
 //        float cy = getHeight()/2;
 //        canvas.drawCircle(cx,cy,radius,mPaint);
-
 
 
 ////Draw Oval
@@ -73,7 +121,6 @@ public class GraphicView extends View {
 //        float left = (getWidth() - width) / 2.0f;
 //        float top = (getHeight() - height) / 2.0f;
 //        canvas.drawArc(new RectF(left, top, left + width, top + height),0, 300, true, mPaint);
-
 
 
 //        //Draw Bitmap
@@ -95,10 +142,11 @@ public class GraphicView extends View {
 
     private void initPaint() {
         mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        mPaint.setColor(Color.BLUE);
+
         mPaint.setStrokeWidth(30);
         mPaint.setStrokeCap(Paint.Cap.ROUND);
         mPaint.setStyle(Paint.Style.STROKE);
+        mPaint.setColor(Color.YELLOW);
         mBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.d);
 
     }

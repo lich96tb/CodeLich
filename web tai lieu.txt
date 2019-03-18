@@ -7,3 +7,4 @@ quet QR: https://www.studytutorial.in/android-bar-code-qr-code-scanner-tutorial-
 RangeSeekBar: https://github.com/Jay-Goo/RangeSeekBar.
 bieu tuong facebook: https://github.com/andob/emojilike-android
 ViewPager: https://github.com/crosswall/Android-Coverflow
+Xin quyen: https://github.com/wajahatkarim3/Today-I-Learned/blob/master/android/runtime-perms.md
