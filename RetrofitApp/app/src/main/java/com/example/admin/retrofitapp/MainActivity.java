@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
         call.enqueue(new Callback<String>() {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
-//                Log.e("ABSD ",""+response.body());
+                Log.e("ABSD ",""+response.body());
 //                Toast.makeText(MainActivity.this, ""+response.body(), Toast.LENGTH_SHORT).show();
             }
 
