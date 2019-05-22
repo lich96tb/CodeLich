@@ -19,7 +19,7 @@ import io.reactivex.disposables.Disposable;
 
 public class MainActivity extends AppCompatActivity {
     private Observable<String> observable;
-    private Observer<String> myObs.2ervable;
+    private Observer<String> myObsvable;
     private String greeting = "hello from";
     private Disposable disposable;
     Integer[] integers = {1, 2, 3};
@@ -33,19 +33,18 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //funJust();
-        // funFrom();
-        //funDefer();
-        //funDeferChec();
-        //funDefer();
-        //funInterval();
-        //funCreat();
-        funAFreeThreaded();
-
+        funJust();
+//         funFrom();
+//        funDefer();
+//        funDeferChec();
+//        funDefer();
+//        funInterval();
+//        funCreate();
+//
     }
 
 
-    private void funCreat() {
+    private void funCreate() {
         Observable.create(new ObservableOnSubscribe<Integer>() {
             @Override
             public void subscribe(ObservableEmitter<Integer> emitter) {
@@ -114,6 +113,7 @@ public class MainActivity extends AppCompatActivity {
                 return Observable.just(movie);
             }
         });
+
         movie = "do trong lich";
         movie = "do trong lich1";
         movie = "do trong lich2";
