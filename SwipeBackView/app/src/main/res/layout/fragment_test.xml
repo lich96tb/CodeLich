@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.robgas.backswipelayout.BackSwipeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#2196F3"
+        android:id="@+id/swipeBackground"
+        tools:context=".ui.Test">
+    <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/nhuna"/>
+
+</com.robgas.backswipelayout.BackSwipeLayout>

@@ -11,6 +11,7 @@ import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.widget.LinearLayout
 import com.audiovideoplayer.swipebackview.AdapterItemAvata
+import com.audiovideoplayer.swipebackview.R
 import com.audiovideoplayer.swipebackview.interfaces.ClickItem
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -19,7 +20,6 @@ class MainActivity : AppCompatActivity(), ClickItem {
     override fun clickItemImage(itmPosition: Int) {
         imgAvata.setImageResource(itmPosition)
         item = itmPosition
-        // startActivity(Intent(this, ShowImage::class.java).putExtra("itemView", itmPosition))
     }
 
     private lateinit var list: ArrayList<Int>
@@ -29,9 +29,9 @@ class MainActivity : AppCompatActivity(), ClickItem {
         super.onCreate(savedInstanceState)
         setContentView(com.audiovideoplayer.swipebackview.R.layout.activity_main)
         addData()
-        Log.e("ASDFS ", " ${list.size}")
+        item=list[0]
         recyclervieeItem.apply {
-            layoutManager = LinearLayoutManager(context, LinearLayout.HORIZONTAL, false)
+            layoutManager = LinearLayoutManager(context, LinearLayout.HORIZONTAL, false) as RecyclerView.LayoutManager?
             adapter = list.let {
                 AdapterItemAvata(list, this@MainActivity)
             }
@@ -39,35 +39,37 @@ class MainActivity : AppCompatActivity(), ClickItem {
             hasFixedSize()
         }
         imgAvata.setOnClickListener {
-            Log.e("AAAAAAAA111", "   " + item)
             var intent = Intent(this, ShowImage::class.java)
             intent.putExtra("itemView", item)
-            startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(this).toBundle())
+            startActivity(intent)
+        }
+        btnNectFragment.setOnClickListener {
+            supportFragmentManager.beginTransaction().add(R.id.mainActivity, Test()).addToBackStack(null).commit()
         }
 
     }
 
     private fun addData() {
         list = ArrayList<Int>()
-        list.add(com.audiovideoplayer.swipebackview.R.drawable.nhuna)
-        list.add(com.audiovideoplayer.swipebackview.R.drawable.nhung2)
-        list.add(com.audiovideoplayer.swipebackview.R.drawable.girl3)
-        list.add(com.audiovideoplayer.swipebackview.R.drawable.girl4)
+        list.add(R.drawable.nhuna)
+        list.add(R.drawable.nhung2)
+        list.add(R.drawable.girl3)
+        list.add(R.drawable.girl4)
 
-        list.add(com.audiovideoplayer.swipebackview.R.drawable.nhuna)
-        list.add(com.audiovideoplayer.swipebackview.R.drawable.nhung2)
-        list.add(com.audiovideoplayer.swipebackview.R.drawable.girl3)
-        list.add(com.audiovideoplayer.swipebackview.R.drawable.girl4)
+        list.add(R.drawable.nhuna)
+        list.add(R.drawable.nhung2)
+        list.add(R.drawable.girl3)
+        list.add(R.drawable.girl4)
 
-        list.add(com.audiovideoplayer.swipebackview.R.drawable.nhuna)
-        list.add(com.audiovideoplayer.swipebackview.R.drawable.nhung2)
-        list.add(com.audiovideoplayer.swipebackview.R.drawable.girl3)
-        list.add(com.audiovideoplayer.swipebackview.R.drawable.girl4)
+        list.add(R.drawable.nhuna)
+        list.add(R.drawable.nhung2)
+        list.add(R.drawable.girl3)
+        list.add(R.drawable.girl4)
 
-        list.add(com.audiovideoplayer.swipebackview.R.drawable.nhuna)
-        list.add(com.audiovideoplayer.swipebackview.R.drawable.nhung2)
-        list.add(com.audiovideoplayer.swipebackview.R.drawable.girl3)
-        list.add(com.audiovideoplayer.swipebackview.R.drawable.girl4)
+        list.add(R.drawable.nhuna)
+        list.add(R.drawable.nhung2)
+        list.add(R.drawable.girl3)
+        list.add(R.drawable.girl4)
 
 
     }

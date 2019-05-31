@@ -6,10 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".ui.ShowImage">
 
-    <ImageView
-        android:id="@+id/imgAvataRun"
-        android:src="@drawable/girl4"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+    <com.robgas.backswipelayout.BackSwipeLayout
+        android:id="@+id/backSwipeLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
+        <ImageView
+            android:id="@+id/imgAvataRun"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/girl4" />
+    </com.robgas.backswipelayout.BackSwipeLayout>
 </android.support.constraint.ConstraintLayout>
