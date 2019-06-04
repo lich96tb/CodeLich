@@ -13,6 +13,7 @@ import android.graphics.RectF;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewTreeObserver;
@@ -44,13 +45,10 @@ public class CustomView extends View {
         init(attrs);
     }
 
-    public CustomView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-        super(context, attrs, defStyleAttr, defStyleRes);
-
-        init(attrs);
-    }
 
     private void init(@Nullable AttributeSet set) {
+        Log.e("AAAAAAAA"," "+getWidth());
+
         //hinh vuong
         mPaintSquare = new Paint(Paint.ANTI_ALIAS_FLAG);
         mRectSquare = new Rect();
@@ -121,7 +119,7 @@ public class CustomView extends View {
         //canvas hinh anh
         float imagX=(getWidth()-bitmap.getWidth())/2;
         float imagY=(getHeight()-bitmap.getHeight())/2;
-        canvas.drawBitmap(bitmap, imagX, imagY, null);
+      //  canvas.drawBitmap(bitmap, imagX, imagY, null);
 
     }
 
@@ -132,6 +130,7 @@ public class CustomView extends View {
             case MotionEvent.ACTION_DOWN:
                 float x1 = event.getX();
                 float y1 = event.getY();
+                //phong to hinh anh
                 if (x1 > mRectSquare.left && x1 < mRectSquare.right)
                     if (y1 > mRectSquare.top && y1 < mRectSquare.bottom) {
                         mCircleRadius += 20;
@@ -139,6 +138,7 @@ public class CustomView extends View {
                     }
                 return true;
             case MotionEvent.ACTION_MOVE:
+                Log.e("AAAAADDDd"," dddd ");
                 float x = event.getX();
                 float y = event.getY();
                 double dx = Math.pow(x - mCircleX, 2);

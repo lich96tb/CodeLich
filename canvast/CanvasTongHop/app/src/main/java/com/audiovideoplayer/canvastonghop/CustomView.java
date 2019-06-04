@@ -38,6 +38,7 @@ public class CustomView extends View {
 
         //text
         mTextPaint = new TextPaint(Paint.ANTI_ALIAS_FLAG);
+        mTextPaint.setTextAlign(Paint.Align.CENTER);
         mTextPaint.setColor(Color.parseColor("#16a085"));
         mTextPaint.setTextSize(50);
     }
