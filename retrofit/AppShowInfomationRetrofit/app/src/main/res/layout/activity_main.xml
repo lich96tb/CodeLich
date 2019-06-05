@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             xmlns:app="http://schemas.android.com/apk/res-auto"
+                                             xmlns:tools="http://schemas.android.com/tools"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="match_parent"
+                                             android:background="#00AFFF"
+                                             tools:context=".ui.MainActivity">
+
+    <ImageView
+            android:id="@+id/imgAccount"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/ic_account"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+    <EditText
+            android:id="@+id/edtName"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_margin="50sp"
+            android:background="@drawable/edit_text"
+            android:hint="Name"
+            android:padding="10dp"
+            android:gravity="center_vertical"
+            android:textSize="20sp"
+            app:layout_constraintTop_toBottomOf="@id/imgAccount"/>
+
+    <EditText
+            android:gravity="center_vertical"
+            android:id="@+id/edtJob"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_margin="50dp"
+            android:background="@drawable/edit_text"
+            android:hint="Job"
+            android:padding="10dp"
+            app:layout_constraintEnd_toEndOf="@id/edtName"
+            app:layout_constraintStart_toStartOf="@id/edtName"
+            app:layout_constraintTop_toBottomOf="@id/edtName"/>
+
+    <Button
+            android:id="@+id/btnRegister"
+            android:layout_width="match_parent"
+            android:ems="10"
+            android:layout_margin="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/buttom"
+            android:text="register"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edtJob"/>
+
+    <TextView
+            android:id="@+id/txtProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:text="Profile"
+            android:background="?android:selectableItemBackground"
+            android:textColor="#FF9800"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+            android:background="?android:selectableItemBackground"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:id="@+id/txtListProfile"
+            android:text="List profile"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+</android.support.constraint.ConstraintLayout>
