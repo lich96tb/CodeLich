@@ -6,7 +6,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import com.audiovideoplayer.appshowinfomationretrofit.R
-import com.audiovideoplayer.appshowinfomationretrofit.interfaces.APIServices
+import com.audiovideoplayer.appshowinfomationretrofit.interfaces.ApiRetrofit
 import com.audiovideoplayer.appshowinfomationretrofit.util.retrofit
 import com.audiovideoplayer.appshowinfomationretrofit.util.toast
 import com.audiovideoplayer.retrofitregisterlogin.model.Post
@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         var dialog = ProgressDialog(this)
         dialog.setTitle("Loading...")
         dialog.show()
-        val redditAPI = retrofit.create(APIServices::class.java!!)
+        val redditAPI = retrofit.create(ApiRetrofit::class.java!!)
         val call = redditAPI.savePost(
             edtName.text.toString().trim(),
             edtJob.text.toString().trim()

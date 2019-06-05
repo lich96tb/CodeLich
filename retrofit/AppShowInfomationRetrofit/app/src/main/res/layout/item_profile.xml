@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <ImageView
+            android:src="@drawable/ic_launcher_background"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/imgAvata"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="do trong lich"
+            app:layout_constraintStart_toEndOf="@id/imgAvata"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="10dp"
+            android:padding="10dp"
+            android:id="@+id/txtName"
+            android:textColor="#000000"/>
+
+    <TextView
+            android:id="@+id/txtEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="lich96tb@gmail.com"
+            android:textColor="#000"
+            app:layout_constraintStart_toEndOf="@id/imgAvata"
+            app:layout_constraintTop_toBottomOf="@id/txtName"
+            android:padding="10dp"/>
+
+    <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#FFC107"
+            app:layout_constraintTop_toBottomOf="@id/imgAvata"
+            android:layout_marginTop="10dp"/>
+</android.support.constraint.ConstraintLayout>
