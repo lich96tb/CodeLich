@@ -1,6 +1,7 @@
 package com.audiovideoplayer.appshowinfomationretrofit.util
 
 import android.content.Context
+import android.util.Log
 import android.widget.Toast
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -11,4 +12,7 @@ val retrofit: Retrofit = Retrofit.Builder()
         .build()
 fun toast(context: Context,content:String){
         Toast.makeText(context,content,Toast.LENGTH_LONG).show()
+}
+fun loge(content: String){
+        Log.e("AAAAAAAA",content)
 }

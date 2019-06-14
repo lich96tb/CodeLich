@@ -13,6 +13,8 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".ui.SingleUserActivity">
+        </activity>
         <activity android:name=".ui.ProfileActivity">
         </activity>
         <activity android:name=".ui.MainActivity">
