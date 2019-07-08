@@ -22,6 +22,9 @@ class SingleUserActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_single_user)
         var id=intent.getIntExtra("id",0)
+
+
+
         val apiService = retrofit.create(ApiRetrofit::class.java)
         val call = apiService.getUser(id)
         call.enqueue(object : Callback<UserTest>{
