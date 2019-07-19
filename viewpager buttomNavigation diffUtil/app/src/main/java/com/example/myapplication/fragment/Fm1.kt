@@ -54,7 +54,7 @@ class Fm1 : Fragment() {
        view.clickAdd.setOnClickListener {
            var list2=ArrayList<Content>()
            list2.addAll(listData)
-           list2.add(0,Content(System.currentTimeMillis().toString(), R.drawable.d))
+           list2.add(0,Content(System.currentTimeMillis().toString(), R.drawable.d,2))
          contentAdapter.addData(list2)
      view.recylcerviewContent.scrollToPosition(0)
        }
