@@ -1,10 +1,11 @@
-package com.example.myapplication
+package com.example.rx2
 
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import rx.Observable
+import rx.Observer
 import rx.android.schedulers.AndroidSchedulers
 import rx.schedulers.Schedulers
 import java.util.concurrent.TimeUnit
@@ -16,7 +17,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-       // RxView.clicks(txtName).subscribe { v -> Toast.makeText(this@MainActivity, "Kkk", Toast.LENGTH_LONG).show() }
+        // RxView.clicks(txtName).subscribe { v -> Toast.makeText(this@MainActivity, "Kkk", Toast.LENGTH_LONG).show() }
 
         mainFunctionRX()
         funCreate()
@@ -31,27 +32,45 @@ class MainActivity : AppCompatActivity() {
 
 
     private fun funCreate() {
-      //  Observable.interval(1, TimeUnit.MILLISECONDS)?.subscribe { i -> Log.e("ASDFDSf ", "$i") }
+        Observable.interval(1000, TimeUnit.MILLISECONDS)
+            .observeOn(Schedulers.io())
+            .subscribeOn(AndroidSchedulers.mainThread())
+            ?.subscribe(object : Observer<Long> {
+
+                override fun onError(e: Throwable?) {
+
+                }
+
+                override fun onNext(t: Long?) {
+                    Log.e("AAAAAAAAADd", " = [ $t]")
+                }
+
+                override fun onCompleted() {
+                }
+            })
+
+
+         //  .subscribe {Log.e("AAAAAAAAADd ","$it") }
     }
 
     private fun mainFunctionRX() {
         Observable.just(1, 2, 3, 4, 5, 6, 7, 8, 9, 10).observeOn(Schedulers.io())
             ?.subscribeOn(AndroidSchedulers.mainThread())
             ?.filter { i -> i % 2 == 0 }
-            ?.subscribe(this::handleResponse, this::handleError, this::handleSuccess)
-//            ?.subscribe(object : Observer<Int> {
-//
-//                override fun onError(e: Throwable?) {
-//
-//                }
-//
-//                override fun onNext(t: Int?) {
-//                    Log.e("LLLLLLLLLL", "Even Numbers = [ $t]")
-//                }
-//
-//                override fun onCompleted() {
-//                }
-//            })
+        //    ?.subscribe(this::handleResponse, this::handleError, this::handleSuccess)
+            ?.subscribe(object : Observer<Int> {
+
+                override fun onError(e: Throwable?) {
+
+                }
+
+                override fun onNext(t: Int?) {
+                    Log.e("LLLLLLLLLL", "Even Numbers = [ $t]")
+                }
+
+                override fun onCompleted() {
+                }
+            })
 
 
         //in ra cac so chan
@@ -100,6 +119,6 @@ class MainActivity : AppCompatActivity() {
 
 
     private fun handleSuccess() {
-        Toast.makeText(this, "Get data success! ", Toast.LENGTH_SHORT).show()
+       // Toast.makeText(this, "Get data success! ", Toast.LENGTH_SHORT).show()
     }
 }
