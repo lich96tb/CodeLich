@@ -54,9 +54,11 @@ class ContentAdapter(var list: ArrayList<Content>? = null) : RecyclerView.Adapte
         return list!!.size
     }
     fun addData(listAdd: ArrayList<Content>) {
-        list2?.clear()
-        list2?.addAll(listAdd)
-        syncBookmarkedItems()
+        notifyItemInserted(list!!.size)
+      //  list2?.clear()
+       // list2?.addAll(listAdd)
+      //  list2?.addAll(listAdd)
+       // syncBookmarkedItems()
     }
 
 

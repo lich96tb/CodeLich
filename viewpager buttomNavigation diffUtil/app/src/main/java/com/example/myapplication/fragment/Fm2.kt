@@ -11,16 +11,16 @@ import com.example.myapplication.Content
 import com.example.myapplication.ContentAdapter
 
 import com.example.myapplication.R
-import kotlinx.android.synthetic.main.fragment_fm1.*
 import kotlinx.android.synthetic.main.fragment_fm1.view.*
 import kotlinx.android.synthetic.main.fragment_fm2.*
+import kotlinx.android.synthetic.main.fragment_fm2.view.*
 
 class Fm2 : Fragment() {
     private lateinit var contentAdapter: ContentAdapter
     private lateinit var listData: ArrayList<Content>
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater, container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_fm2, container, false)
@@ -28,6 +28,24 @@ class Fm2 : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        configRecyclerView()
+        onClick(view)
+
+
+    }
+
+    private fun onClick(view: View) {
+        view.btnSen1.setOnClickListener {
+            listData.add(Content(view.edt1.text.trim().toString(), R.drawable.ic_person, 1))
+            contentAdapter.addData(listData)
+        }
+        view.btnSen2.setOnClickListener {
+            listData.add(Content(view.edt1.text.trim().toString(), R.drawable.ic_person, 2))
+            contentAdapter.addData(listData)
+        }
+    }
+
+    private fun configRecyclerView() {
         listData = ArrayList()
         contentAdapter = ContentAdapter(addListData())
         recylcerviewContent2.apply {

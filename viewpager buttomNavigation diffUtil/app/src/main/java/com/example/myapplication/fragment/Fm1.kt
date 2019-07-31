@@ -52,11 +52,11 @@ class Fm1 : Fragment() {
             setHasFixedSize(true)
         }
        view.clickAdd.setOnClickListener {
-           var list2=ArrayList<Content>()
-           list2.addAll(listData)
-           list2.add(0,Content(System.currentTimeMillis().toString(), R.drawable.d,2))
-         contentAdapter.addData(list2)
-     view.recylcerviewContent.scrollToPosition(0)
+          // var list2=ArrayList<Content>()
+          // list2.addAll(listData)
+           listData.add(Content(System.currentTimeMillis().toString(), R.drawable.d,2))
+         contentAdapter.addData(listData)
+    view.recylcerviewContent.scrollToPosition(listData.size-1)
        }
     }
 

@@ -1,22 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    android:orientation="vertical" xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:tools="http://schemas.android.com/tools"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             android:background="#8BC34A"
-             tools:context=".fragment.Fm2">
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#8BC34A"
+    android:orientation="vertical"
+    tools:context=".fragment.Fm2">
 
-    <EditText
-        android:freezesText="true"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="abc"
-        />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recylcerviewContent2"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+       app:layout_constraintTop_toBottomOf="@id/edtContent"/>
 
+    <EditText
+        android:layout_marginTop="50dp"
+        android:id="@+id/edtContent"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="100dp"
+        android:freezesText="true"
+        android:hint="abc"
+        app:layout_constraintEnd_toStartOf="@id/btnSen2"
+        app:layout_constraintStart_toEndOf="@id/btnSen1"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</LinearLayout>
+    <ImageView
+        android:id="@+id/btnSen1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="?selectableItemBackground"
+        android:clickable="true"
+        android:padding="10dp"
+        android:src="@drawable/ic_sen"
+        app:layout_constraintBottom_toBottomOf="@id/edtContent"
+        app:layout_constraintEnd_toStartOf="@+id/edtContent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/edtContent" />
+
+    <ImageView
+        android:id="@+id/btnSen2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="?selectableItemBackground"
+        android:clickable="true"
+        android:padding="10dp"
+        android:src="@drawable/ic_sen"
+        app:layout_constraintBottom_toBottomOf="@id/edtContent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/edtContent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
