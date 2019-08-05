@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "686332026474",
+    "firebase_url": "https://notificationvpbs.firebaseio.com",
+    "project_id": "notificationvpbs",
+    "storage_bucket": "notificationvpbs.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:686332026474:android:9bbac9d960524d78",
+        "android_client_info": {
+          "package_name": "vpbs.derivative"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "686332026474-nvteot2ilcn6e05e77eehl65q7gqg99d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD4xYZYKfyWDg5WwjsDK9pGwVhlZ2Pyn3c"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
