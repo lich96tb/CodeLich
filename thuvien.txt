@@ -4,3 +4,4 @@ efects image: https://androidexample365.com/creating-awesome-effects-on-any-imag
 keo layout nhu youtube: https://androidexample365.com/youtube-video-android-sample/
 https://androidexample365.com/a-floating-view-helper-lib-to-let-you-create-floating-view-above-other-views/
 effect video: https://androidexample365.com/this-library-generate-an-mp4-movie-using-android-mediacodec-api/
+animationaa; https://androidexample365.com/viewanimator-view-with-a-lollipop-style-reveal-effect-2/
