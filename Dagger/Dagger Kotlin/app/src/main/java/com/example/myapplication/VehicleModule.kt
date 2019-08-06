@@ -6,6 +6,7 @@ import javax.inject.Singleton
 
 @Module
 class VehicleModule {
+    //cung cấp các đối tượng cho phụ thuộc hàm
 
 //    @Provides
 //    @Singleton

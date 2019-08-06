@@ -2,7 +2,7 @@ package com.example.myapplication
 
 
 import javax.inject.Inject
-
+//inject được dùng để xác định các phụ thuộc hàm
 class Vehicle @Inject
 constructor(private var motor: Motor) {
     fun getSpeed():Int{
@@ -12,7 +12,4 @@ constructor(private var motor: Motor) {
         motor.rpm=11230
     }
 
-    fun ABC(): Int {
-        return 13
-    }
 }
