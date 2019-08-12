@@ -3,7 +3,7 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/motionLayout"
-        app:layoutDescription="@xml/image_filter"
+        app:layoutDescription="@xml/dovitri"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -14,4 +14,11 @@
             app:altSrc="@drawable/c"
             android:layout_width="64dp"
             android:layout_height="64dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="do torng lich"
+        android:background="#FF0000"
+        android:id="@+id/txtName"/>
+
 </androidx.constraintlayout.motion.widget.MotionLayout>

@@ -10,6 +10,14 @@
                 motion:dragDirection="dragRight"
                 motion:touchAnchorId="@id/image"
                 motion:touchAnchorSide="right" />
+        <!--thay doi vi tri len cao o giua-->
+        <!--<KeyFrameSet>-->
+            <!--<KeyPosition-->
+                    <!--motion:keyPositionType="pathRelative"-->
+                    <!--motion:percentY="-0.55"-->
+                    <!--motion:framePosition="20"-->
+                    <!--motion:motionTarget="@id/image"/>-->
+        <!--</KeyFrameSet>-->
     </Transition>
 
     <ConstraintSet android:id="@+id/start">
