@@ -16,7 +16,7 @@ class VehicleModule {
 
     @Provides
     @Singleton
-    internal fun provideVehicle(): Vehicle {
+     fun provideVehicle(): Vehicle {
         return Vehicle(Motor())
     }
 }
