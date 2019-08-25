@@ -57,7 +57,7 @@ public class LoginActivityTest {
 
     @Test
     public void checkViewsDisplay() {
-        main.launchActivity(LoginActivity.getStartIntent(component.getContext()));
+        main.launchActivity(LoginActivity.Companion.getStartIntent(component.getContext()));
 
         onView(withId(R.id.et_email))
                 .check(matches(isDisplayed()));

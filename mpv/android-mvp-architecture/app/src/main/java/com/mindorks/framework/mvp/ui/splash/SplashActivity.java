@@ -21,6 +21,7 @@ import android.os.Bundle;
 
 import com.mindorks.framework.mvp.R;
 import com.mindorks.framework.mvp.ui.base.BaseActivity;
+import com.mindorks.framework.mvp.ui.login.LoginActivity;
 
 
 import javax.inject.Inject;
@@ -37,11 +38,6 @@ public class SplashActivity extends BaseActivity implements SplashMvpView {
     @Inject
     SplashMvpPresenter<SplashMvpView> mPresenter;
 
-    public static Intent getStartIntent(Context context) {
-        Intent intent = new Intent(context, SplashActivity.class);
-        return intent;
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,6 +48,7 @@ public class SplashActivity extends BaseActivity implements SplashMvpView {
         setUnBinder(ButterKnife.bind(this));
 
         mPresenter.onAttach(SplashActivity.this);
+        startActivity(new Intent(this, LoginActivity.class));
     }
 
     @Override
