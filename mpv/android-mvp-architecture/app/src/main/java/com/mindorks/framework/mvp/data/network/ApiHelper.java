@@ -18,6 +18,8 @@ package com.mindorks.framework.mvp.data.network;
 import com.mindorks.framework.mvp.data.network.model.BlogResponse;
 import com.mindorks.framework.mvp.data.network.model.LogoutResponse;
 import com.mindorks.framework.mvp.data.network.model.OpenSourceResponse;
+import com.mindorks.framework.mvp.data.network.model.listpakage.PackageRequest;
+import com.mindorks.framework.mvp.data.network.model.listpakage.PackageResponse;
 import com.mindorks.framework.mvp.data.network.model.login.LoginResponse;
 import com.mindorks.framework.mvp.data.network.model.login.LoginResquest;
 
@@ -32,6 +34,7 @@ public interface ApiHelper {
     ApiHeader getApiHeader();
 
   Single<LoginResponse> doServiceLoginApiCalls(LoginResquest request);
+  Single<PackageResponse> doServiceGetPackageApiCalls(PackageRequest request);
 
     Single<LogoutResponse> doLogoutApiCall();
 

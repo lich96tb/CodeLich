@@ -8,6 +8,9 @@ import butterknife.ButterKnife
 import com.google.gson.Gson
 import com.mindorks.framework.mvp.data.network.model.login.LoginResponse
 import com.mindorks.framework.mvp.ui.base.BaseActivity
+import com.mindorks.framework.mvp.ui.packageservice.PackageServiceActivity
+import com.mindorks.framework.mvp.utils.session
+import com.mindorks.framework.mvp.utils.username
 import com.rx2androidnetworking.Rx2AndroidNetworking
 import kotlinx.android.synthetic.main.activity_login.*
 import javax.inject.Inject
@@ -16,7 +19,10 @@ import javax.inject.Inject
 class LoginActivity : BaseActivity(), LoginMvpView {
     override fun loginSuccess(loginResponse: LoginResponse?) {
         hideLoading()
-        Log.e("AAAAAADfs "," "+loginResponse!!.data!!.name)
+        username=edtUser.text.toString().trim()
+        session= loginResponse?.data.let {it!!.sid.toString()}
+        Log.e("ASDFSD ","dang nhap thanh cong")
+        startActivity(Intent(this@LoginActivity,PackageServiceActivity::class.java))
     }
 
     override fun openActivityOnTokenExpire() {

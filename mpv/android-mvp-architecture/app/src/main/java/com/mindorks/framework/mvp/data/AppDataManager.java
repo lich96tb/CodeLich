@@ -31,6 +31,8 @@ import com.mindorks.framework.mvp.data.network.ApiHelper;
 import com.mindorks.framework.mvp.data.network.model.BlogResponse;
 import com.mindorks.framework.mvp.data.network.model.LogoutResponse;
 import com.mindorks.framework.mvp.data.network.model.OpenSourceResponse;
+import com.mindorks.framework.mvp.data.network.model.listpakage.PackageRequest;
+import com.mindorks.framework.mvp.data.network.model.listpakage.PackageResponse;
 import com.mindorks.framework.mvp.data.network.model.login.LoginResponse;
 import com.mindorks.framework.mvp.data.network.model.login.LoginResquest;
 import com.mindorks.framework.mvp.data.prefs.PreferencesHelper;
@@ -83,6 +85,10 @@ public class AppDataManager implements DataManager {
     public Single<LoginResponse> doServiceLoginApiCalls(LoginResquest request) {
         return mApiHelper.doServiceLoginApiCalls(request);
     }
+
+    @Override
+    public Single<PackageResponse> doServiceGetPackageApiCalls(PackageRequest request) {
+        return mApiHelper.doServiceGetPackageApiCalls(request);    }
 
     @Override
     public String getAccessToken() {

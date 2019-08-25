@@ -18,7 +18,7 @@ package com.mindorks.framework.mvp.di.component;
 import com.mindorks.framework.mvp.di.PerActivity;
 import com.mindorks.framework.mvp.di.module.ActivityModule;
 import com.mindorks.framework.mvp.ui.login.LoginActivity;
-import com.mindorks.framework.mvp.ui.splash.SplashActivity;
+import com.mindorks.framework.mvp.ui.packageservice.PackageServiceActivity;
 
 import dagger.Component;
 
@@ -29,8 +29,8 @@ import dagger.Component;
 @PerActivity
 @Component(dependencies = ApplicationComponent.class, modules = ActivityModule.class)
 public interface ActivityComponent {
-    void inject(SplashActivity activity);
     void inject(LoginActivity activity);
+    void inject(PackageServiceActivity activity);
 
 
 }

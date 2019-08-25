@@ -65,7 +65,6 @@ public abstract class BaseFragment extends Fragment implements MvpView {
         hideLoading();
         mProgressDialog = CommonUtils.showLoadingDialog(this.getContext());
     }
-
     @Override
     public void hideLoading() {
         if (mProgressDialog != null && mProgressDialog.isShowing()) {

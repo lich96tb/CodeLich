@@ -19,17 +19,9 @@ import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 
-import com.mindorks.framework.mvp.data.network.model.BlogResponse;
-import com.mindorks.framework.mvp.data.network.model.OpenSourceResponse;
 import com.mindorks.framework.mvp.di.ActivityContext;
-import com.mindorks.framework.mvp.di.PerActivity;
-import com.mindorks.framework.mvp.ui.splash.SplashMvpPresenter;
-import com.mindorks.framework.mvp.ui.splash.SplashMvpView;
-import com.mindorks.framework.mvp.ui.splash.SplashPresenter;
 import com.mindorks.framework.mvp.utils.rx.AppSchedulerProvider;
 import com.mindorks.framework.mvp.utils.rx.SchedulerProvider;
-
-import java.util.ArrayList;
 
 import dagger.Module;
 import dagger.Provides;
@@ -67,13 +59,6 @@ public class ActivityModule {
     @Provides
     SchedulerProvider provideSchedulerProvider() {
         return new AppSchedulerProvider();
-    }
-
-    @Provides
-    @PerActivity
-    SplashMvpPresenter<SplashMvpView> provideSplashPresenter(
-            SplashPresenter<SplashMvpView> presenter) {
-        return presenter;
     }
 
 

@@ -19,6 +19,8 @@ import com.google.gson.Gson;
 import com.mindorks.framework.mvp.data.network.model.BlogResponse;
 import com.mindorks.framework.mvp.data.network.model.LogoutResponse;
 import com.mindorks.framework.mvp.data.network.model.OpenSourceResponse;
+import com.mindorks.framework.mvp.data.network.model.listpakage.PackageRequest;
+import com.mindorks.framework.mvp.data.network.model.listpakage.PackageResponse;
 import com.mindorks.framework.mvp.data.network.model.login.LoginResponse;
 import com.mindorks.framework.mvp.data.network.model.login.LoginResquest;
 import com.rx2androidnetworking.Rx2AndroidNetworking;
@@ -62,6 +64,20 @@ public class AppApiHelper implements ApiHelper {
         }
         return Rx2AndroidNetworking.post("https://webtrade.vps.com.vn/Api/Proxy").setContentType("application/json; charset=utf-8")
                 .addJSONObjectBody(requestJson).build().getObjectSingle(LoginResponse.class);
+    }
+
+    @Override
+    public Single<PackageResponse> doServiceGetPackageApiCalls(PackageRequest request) {
+        Gson gson = new Gson();
+        String jsonString = gson.toJson(request);
+        JSONObject requestJson = null;
+        try {
+            requestJson = new JSONObject(jsonString);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return Rx2AndroidNetworking.post("https://webtrade.vps.com.vn/Api/Proxy").setContentType("application/json; charset=utf-8")
+                .addJSONObjectBody(requestJson).build().getObjectSingle(PackageResponse.class);
     }
 
 
