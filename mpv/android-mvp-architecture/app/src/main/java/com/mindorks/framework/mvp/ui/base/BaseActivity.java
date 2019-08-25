@@ -36,7 +36,6 @@ import com.mindorks.framework.mvp.R;
 import com.mindorks.framework.mvp.di.component.ActivityComponent;
 import com.mindorks.framework.mvp.di.component.DaggerActivityComponent;
 import com.mindorks.framework.mvp.di.module.ActivityModule;
-import com.mindorks.framework.mvp.ui.login.LoginActivity;
 import com.mindorks.framework.mvp.utils.CommonUtils;
 import com.mindorks.framework.mvp.utils.NetworkUtils;
 
@@ -163,11 +162,7 @@ public abstract class BaseActivity extends AppCompatActivity
         }
     }
 
-    @Override
-    public void openActivityOnTokenExpire() {
-        startActivity(LoginActivity.getStartIntent(this));
-        finish();
-    }
+
 
     public void setUnBinder(Unbinder unBinder) {
         mUnBinder = unBinder;

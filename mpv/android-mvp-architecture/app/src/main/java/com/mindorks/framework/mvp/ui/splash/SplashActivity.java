@@ -21,8 +21,7 @@ import android.os.Bundle;
 
 import com.mindorks.framework.mvp.R;
 import com.mindorks.framework.mvp.ui.base.BaseActivity;
-import com.mindorks.framework.mvp.ui.login.LoginActivity;
-import com.mindorks.framework.mvp.ui.main.MainActivity;
+
 
 import javax.inject.Inject;
 
@@ -55,22 +54,20 @@ public class SplashActivity extends BaseActivity implements SplashMvpView {
         mPresenter.onAttach(SplashActivity.this);
     }
 
-    /**
-     * Making the screen wait so that the  branding can be shown
-     */
     @Override
     public void openLoginActivity() {
-        Intent intent = LoginActivity.getStartIntent(SplashActivity.this);
-        startActivity(intent);
-        finish();
+
     }
 
     @Override
     public void openMainActivity() {
-        Intent intent = MainActivity.getStartIntent(SplashActivity.this);
-        startActivity(intent);
-        finish();
+
     }
+
+    /**
+     * Making the screen wait so that the  branding can be shown
+     */
+
 
     @Override
     public void startSyncService() {
@@ -85,6 +82,11 @@ public class SplashActivity extends BaseActivity implements SplashMvpView {
 
     @Override
     protected void setUp() {
+
+    }
+
+    @Override
+    public void openActivityOnTokenExpire() {
 
     }
 }
