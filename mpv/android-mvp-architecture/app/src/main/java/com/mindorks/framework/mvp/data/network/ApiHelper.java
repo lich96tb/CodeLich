@@ -16,10 +16,10 @@
 package com.mindorks.framework.mvp.data.network;
 
 import com.mindorks.framework.mvp.data.network.model.BlogResponse;
-import com.mindorks.framework.mvp.data.network.model.LoginRequest;
-import com.mindorks.framework.mvp.data.network.model.LoginResponse;
 import com.mindorks.framework.mvp.data.network.model.LogoutResponse;
 import com.mindorks.framework.mvp.data.network.model.OpenSourceResponse;
+import com.mindorks.framework.mvp.data.network.model.login.LoginResponse;
+import com.mindorks.framework.mvp.data.network.model.login.LoginResquest;
 
 import io.reactivex.Single;
 
@@ -31,11 +31,7 @@ public interface ApiHelper {
 
     ApiHeader getApiHeader();
 
-    Single<LoginResponse> doGoogleLoginApiCall(LoginRequest.GoogleLoginRequest request);
-
-    Single<LoginResponse> doFacebookLoginApiCall(LoginRequest.FacebookLoginRequest request);
-
-    Single<LoginResponse> doServerLoginApiCall(LoginRequest.ServerLoginRequest request);
+  Single<LoginResponse> doServiceLoginApiCalls(LoginResquest request);
 
     Single<LogoutResponse> doLogoutApiCall();
 

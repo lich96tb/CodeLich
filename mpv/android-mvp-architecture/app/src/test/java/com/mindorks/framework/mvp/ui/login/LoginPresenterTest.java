@@ -16,8 +16,6 @@
 package com.mindorks.framework.mvp.ui.login;
 
 import com.mindorks.framework.mvp.data.DataManager;
-import com.mindorks.framework.mvp.data.network.model.LoginRequest;
-import com.mindorks.framework.mvp.data.network.model.LoginResponse;
 import com.mindorks.framework.mvp.utils.rx.TestSchedulerProvider;
 
 import org.junit.After;

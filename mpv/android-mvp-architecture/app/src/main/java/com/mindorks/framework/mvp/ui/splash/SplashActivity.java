@@ -77,10 +77,6 @@ public class SplashActivity extends BaseActivity implements SplashMvpView {
         super.onDestroy();
     }
 
-    @Override
-    protected void setUp() {
-
-    }
 
     @Override
     public void openActivityOnTokenExpire() {

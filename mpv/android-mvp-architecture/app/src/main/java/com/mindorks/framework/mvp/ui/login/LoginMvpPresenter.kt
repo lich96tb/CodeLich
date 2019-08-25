@@ -2,4 +2,6 @@ package com.mindorks.framework.mvp.ui.login
 
 import com.mindorks.framework.mvp.ui.base.MvpPresenter
 
-interface LoginMvpPresenter<V : LoginMvpView> : MvpPresenter<V>
+interface LoginMvpPresenter<V : LoginMvpView> : MvpPresenter<V>{
+    fun login(user:String,password:String)
+}
