@@ -25,7 +25,6 @@ import com.mindorks.framework.mvp.MvpApp;
 import com.mindorks.framework.mvp.data.DataManager;
 import com.mindorks.framework.mvp.di.component.DaggerServiceComponent;
 import com.mindorks.framework.mvp.di.component.ServiceComponent;
-import com.mindorks.framework.mvp.utils.AppLogger;
 
 import javax.inject.Inject;
 
@@ -64,13 +63,11 @@ public class SyncService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        AppLogger.d(TAG, "SyncService started");
         return START_STICKY;
     }
 
     @Override
     public void onDestroy() {
-        AppLogger.d(TAG, "SyncService stopped");
         super.onDestroy();
     }
 
