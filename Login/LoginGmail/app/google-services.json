@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "783696800609-5pcok402iqdgvu6rhr00585tn057rm6g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.admin.logingmail",
+            "certificate_hash": "ea3c3c9981d5f03c4efac9af4b5e9b949827a3a6"
+          }
+        },
+        {
           "client_id": "783696800609-1389f4ko993qmte4dj2mq93hn6jisv47.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
@@ -33,20 +41,13 @@
         }
       ],
       "services": {
-        "analytics_service": {
-          "status": 1
-        },
         "appinvite_service": {
-          "status": 2,
           "other_platform_oauth_client": [
             {
               "client_id": "783696800609-6dpi925qi6n487f4rtuosvr0jqhibtgn.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
-        },
-        "ads_service": {
-          "status": 2
         }
       }
     },
@@ -77,20 +78,13 @@
         }
       ],
       "services": {
-        "analytics_service": {
-          "status": 1
-        },
         "appinvite_service": {
-          "status": 2,
           "other_platform_oauth_client": [
             {
               "client_id": "783696800609-6dpi925qi6n487f4rtuosvr0jqhibtgn.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
-        },
-        "ads_service": {
-          "status": 2
         }
       }
     }
