@@ -28,10 +28,12 @@ class Home : Fragment() {
     }
 
     private fun addData() {
+        listMotionLayout = ArrayList()
         listMotionLayout.add("vuot len tren")
         listMotionLayout.add("keo sang ngang")
         listMotionLayout.add("vuot thay doi fragment")
     }
+
 
 
 }

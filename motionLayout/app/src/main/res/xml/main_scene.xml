@@ -7,7 +7,14 @@
         motion:constraintSetEnd="@+id/end"
         motion:constraintSetStart="@+id/start"
         motion:duration="1000"
-        motion:motionInterpolator="linear" />
+        motion:motionInterpolator="linear">
+        <KeyFrameSet>
+            <KeyPosition
+                motion:keyPositionType="parentRelative"
+                motion:percentY="0.25"
+                motion:framePosition="50" />
+        </KeyFrameSet>
+    </Transition>
 
     <OnSwipe
         motion:touchAnchorId="@+id/container"
