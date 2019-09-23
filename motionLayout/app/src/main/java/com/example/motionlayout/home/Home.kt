@@ -32,6 +32,7 @@ class Home : Fragment() {
         listMotionLayout.add("vuot len tren")
         listMotionLayout.add("keo sang ngang")
         listMotionLayout.add("vuot thay doi fragment")
+        listMotionLayout.add("bottom sheet")
     }
 
 
