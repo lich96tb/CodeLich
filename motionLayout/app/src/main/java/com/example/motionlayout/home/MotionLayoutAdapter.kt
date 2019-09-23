@@ -10,6 +10,7 @@ import com.example.motionlayout.bottom_sheet.BottomSheet
 import com.example.motionlayout.replace_fragment.SwipeReplaceFragment
 import com.example.motionlayout.swipe_along.SwipeAlong
 import com.example.motionlayout.swipe_landscape.SwipeLandscape
+import com.example.motionlayout.utils.ViewHolderNormal
 import kotlinx.android.synthetic.main.item_motion_layout.view.*
 
 class MotionLayoutAdapter(var listMotionLayout: ArrayList<String>, var layoutmanager: FragmentManager) :
@@ -37,6 +38,6 @@ class MotionLayoutAdapter(var listMotionLayout: ArrayList<String>, var layoutman
         }
     }
 
-    class ViewHolderNormal(itemView: View?) : RecyclerView.ViewHolder(itemView!!)
+
 
 }
