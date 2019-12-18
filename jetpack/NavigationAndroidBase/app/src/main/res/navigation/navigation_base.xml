@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_base"
+    app:startDestination="@id/home2">
+    <fragment
+        android:id="@+id/home2"
+        android:name="com.example.navigationandroidbase.Home"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_home2_to_FM2"
+            app:destination="@id/FM2" />
+        <action
+            android:id="@+id/action_home2_to_fm3"
+            app:destination="@id/fm3" />
+    </fragment>
+    <fragment
+        android:id="@+id/FM2"
+        android:name="com.example.navigationandroidbase.fm2.FM2"
+        android:label="fragment_fm2"
+        tools:layout="@layout/fragment_fm2" >
+        <action
+            android:id="@+id/action_FM2_to_fm4"
+            app:destination="@id/fm4" />
+    </fragment>
+    <fragment
+        android:id="@+id/fm3"
+        android:name="com.example.navigationandroidbase.Fm3"
+        android:label="fragment_fm3"
+        tools:layout="@layout/fragment_fm3" >
+        <action
+            android:id="@+id/action_fm3_to_fm4"
+            app:destination="@id/fm4" />
+    </fragment>
+    <fragment
+        android:id="@+id/fm4"
+        android:name="com.example.navigationandroidbase.Fm4"
+        android:label="fragment_fm4"
+        tools:layout="@layout/fragment_fm4" />
+</navigation>
