@@ -8,6 +8,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
+import com.example.abc.viewmodel_databinding_livedata.abc.UserViewModel;
 import com.example.abc.viewmodel_databinding_livedata.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
@@ -20,8 +21,13 @@ public class MainActivity extends AppCompatActivity {
         //   setContentView(R.layout.activity_main);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         userViewModel = ViewModelProviders.of(this).get(UserViewModel.class);
+
+
+        //on click
         MyPresenter myPresenter = new MyPresenter();
         binding.setHandlers(myPresenter);
+
+
         userViewModel.getAllData().observe(this, new Observer<CheckPassWord>() {
             @Override
             public void onChanged(@Nullable CheckPassWord checkPassWord) {

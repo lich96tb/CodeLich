@@ -1,4 +1,4 @@
-package com.example.abc.viewmodel_databinding_livedata;
+package com.example.abc.viewmodel_databinding_livedata.abc;
 
 import android.annotation.TargetApi;
 import android.arch.lifecycle.MutableLiveData;
@@ -10,10 +10,13 @@ import android.text.TextWatcher;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.example.abc.viewmodel_databinding_livedata.CheckPassWord;
+
 import java.util.Objects;
 
 public class UserViewModel extends ViewModel {
-    private ObservableField<String> name = new ObservableField<>();
+    //private ObservableField<String> name = new ObservableField<>();
+    private MutableLiveData<String> name = new MutableLiveData<>();
     private ObservableField<String> email = new ObservableField<>();
     private MutableLiveData<CheckPassWord> pass = new MutableLiveData<>();
     //khoi tao
@@ -30,14 +33,21 @@ public class UserViewModel extends ViewModel {
         Log.e("ABDdd", ""+checkPassWord.getEmailCheck()+"  "+checkPassWord.getNameCheck());
     }
 
-
-    public ObservableField<String> getName() {
+    public MutableLiveData<String> getName() {
         return name;
     }
 
-    public void setName(ObservableField<String> name) {
+    public void setName(MutableLiveData<String> name) {
         this.name = name;
     }
+
+//    public ObservableField<String> getName() {
+//        return name;
+//    }
+//
+//    public void setName(ObservableField<String> name) {
+//        this.name = name;
+//    }
 
     public ObservableField<String> getEmail() {
         return email;
@@ -63,10 +73,10 @@ public class UserViewModel extends ViewModel {
         @TargetApi(Build.VERSION_CODES.KITKAT)
         @Override
         public void afterTextChanged(Editable s) {
-            if (!Objects.equals(name.get(), s.toString())) {
-                checkPassWord.setNameCheck(s + "");
-
-            }
+//            if (!Objects.equals(name.get(), s.toString())) {
+//                checkPassWord.setNameCheck(s + "");
+//
+//            }
         }
     };
 
@@ -84,9 +94,9 @@ public class UserViewModel extends ViewModel {
         @TargetApi(Build.VERSION_CODES.KITKAT)
         @Override
         public void afterTextChanged(Editable s) {
-            if (!Objects.equals(name.get(), s.toString())) {
-                checkPassWord.setEmailCheck(s + "");
-            }
+//            if (!Objects.equals(name.get(), s.toString())) {
+//                checkPassWord.setEmailCheck(s + "");
+//            }
         }
     };
 

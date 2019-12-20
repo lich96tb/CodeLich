@@ -3,9 +3,9 @@
 
     <data>
 
-        <variable
-            name="main"
-            type="com.example.abc.viewmodel_databinding_livedata.MainActivity" />
+<!--        <variable-->
+<!--            name="main"-->
+<!--            type="com.example.abc.viewmodel_databinding_livedata.MainActivity" />-->
 
         <variable
             name="handlers"
@@ -13,7 +13,7 @@
 
         <variable
             name="userViewModel"
-            type="com.example.abc.viewmodel_databinding_livedata.UserViewModel" />
+            type="com.example.abc.viewmodel_databinding_livedata.abc.UserViewModel" />
     </data>
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
