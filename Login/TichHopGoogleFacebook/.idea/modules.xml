@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Login-TichHopGoogleFacebook.iml" filepath="$PROJECT_DIR$/Login-TichHopGoogleFacebook.iml" group="TichHopGoogleFacebook" />
       <module fileurl="file://$PROJECT_DIR$/TichHopGoogleFacebook.iml" filepath="$PROJECT_DIR$/TichHopGoogleFacebook.iml" />
-      <module fileurl="file://$PROJECT_DIR$/TichHopGoogleFacebook.iml" filepath="$PROJECT_DIR$/TichHopGoogleFacebook.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/TichHopGoogleFacebook-app.iml" filepath="$PROJECT_DIR$/app/TichHopGoogleFacebook-app.iml" group="TichHopGoogleFacebook/app" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
