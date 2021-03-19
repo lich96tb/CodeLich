@@ -95,10 +95,10 @@ public class MyService extends Service {
         contentView.setOnClickPendingIntent(R.id.btnNext, pendingIntenta);
 
         Notification notification=mBuilder.build();
-//        RemoteViews bigView = new RemoteViews(getApplicationContext().getPackageName(), R.layout.notification);
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-//            notification.bigContentView = bigView;
-//        }
+        RemoteViews bigView = new RemoteViews(getApplicationContext().getPackageName(), R.layout.notification);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+            notification.bigContentView = bigView;
+        }
 
 
         startForeground(1, notification);
