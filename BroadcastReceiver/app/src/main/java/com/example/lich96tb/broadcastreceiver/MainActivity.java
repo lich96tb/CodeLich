@@ -12,6 +12,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //khi da khai bao action ben manifest thì chỉ càn gửi
+//        button2.setOnClickListener {
+//            val intent = Intent(this, NetworkChangeReceiver::class.java)
+//            intent.action = "abc"
+//            sendBroadcast(intent)
+//
+//        }
+
     }
 
     @Override
