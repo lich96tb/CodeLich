@@ -30,9 +30,10 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
+        //khoi tao binservice
         myService = MyServiceMediaplayer()
 
+        //khởi tạo service background de nhận sự kiện từ notification
         startService(Intent(this, MyServiceMediaplayer::class.java))
         eventView()
     }

@@ -28,7 +28,11 @@ public class MyServiceMediaplayer : Service() {
     }
 
     override fun onStartCommand(intent: Intent, flags: Int, startId: Int): Int {
-        Log.e("AAAAAAAAAAAAA ","kjdksjdkfds ")
+        if (myPlay!!.isPlay()){
+            myPlay!!.pause()
+        }else{
+            myPlay!!.play()
+        }
 
         showNotification1(applicationContext)
         return START_NOT_STICKY
@@ -64,6 +68,7 @@ public class MyServiceMediaplayer : Service() {
 //        contentView.setImageViewBitmap(R.id.imgbackgroundNotification, bitmapBackground);
 
         if (myPlay!!.isPlay()) {
+
             contentView.setImageViewResource(R.id.imgPlay, R.drawable.ic_pause);
         } else {
             contentView.setImageViewResource(R.id.imgPlay, R.drawable.ic_play);
@@ -92,7 +97,7 @@ public class MyServiceMediaplayer : Service() {
         myPlay!!.play()
     }
 
-    inner class MyPlay(var context: Context) {
+    inner class MyPlay( context: Context) {
 
         val mediaPlayer: MediaPlayer = MediaPlayer.create(context, R.raw.nguoitungthuon)
 
@@ -111,9 +116,5 @@ public class MyServiceMediaplayer : Service() {
             mediaPlayer.seekTo(120000)
         }
 
-//        //them bai hat
-//        init {
-//            mediaPlayer!!.isLooping = true
-//        }
     }
 }
