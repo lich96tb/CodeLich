@@ -6,19 +6,21 @@ import android.content.Intent
 import android.media.MediaPlayer
 import android.os.Binder
 import android.os.Build
+import android.os.Handler
 import android.os.IBinder
 import android.util.Log
 import android.widget.RemoteViews
 import androidx.core.app.NotificationCompat
 
 public class MyServiceMediaplayer : Service() {
+    private lateinit var nbuilder: NotificationCompat.Builder
+    private lateinit var contentView: RemoteViews
     private var binder: IBinder? = null
     private var myPlay: MyPlay? = null
     override fun onCreate() {
-        Log.e("sssssssssss ","start")
+        Log.e("sssssssssss ", "start")
         binder = MyBinder()
         myPlay = MyPlay(applicationContext)
-        showNotification1(applicationContext)
     }
 
     inner class MyBinder : Binder() {
@@ -28,12 +30,11 @@ public class MyServiceMediaplayer : Service() {
     }
 
     override fun onStartCommand(intent: Intent, flags: Int, startId: Int): Int {
-        if (myPlay!!.isPlay()){
+        if (myPlay!!.isPlay()) {
             myPlay!!.pause()
-        }else{
+        } else {
             myPlay!!.play()
         }
-
         showNotification1(applicationContext)
         return START_NOT_STICKY
     }
@@ -49,27 +50,23 @@ public class MyServiceMediaplayer : Service() {
         val NOTIFICATION_CHANNEL_ID = "ljdk"
 
         val resultIntent = Intent(context, MainActivity::class.java)
-        val resultPendingIntent = PendingIntent.getActivity(context,
-                0 /* Request code */, resultIntent, PendingIntent.FLAG_UPDATE_CURRENT)
-        val contentView = RemoteViews(context.packageName, R.layout.notification)
+        val resultPendingIntent = PendingIntent.getActivity(context, 0 /* Request code */, resultIntent, PendingIntent.FLAG_UPDATE_CURRENT)
+        contentView = RemoteViews(context.packageName, R.layout.notification)
         mNotificationManager = context.getSystemService(NOTIFICATION_SERVICE) as NotificationManager
-        val nbuilder: NotificationCompat.Builder = NotificationCompat.Builder(context)
+        nbuilder = NotificationCompat.Builder(context)
         nbuilder.setCustomBigContentView(contentView)
-                .setCustomBigContentView(contentView)
-                .setSmallIcon(R.mipmap.logo)
-                .setCustomContentView(contentView)
-                .setContentIntent(resultPendingIntent)
-                .setContentTitle("My notification")
-                .setContentText("Hello World!")
+            .setCustomBigContentView(contentView)
+            .setSmallIcon(R.mipmap.logo)
+            .setCustomContentView(contentView)
+            .setContentIntent(resultPendingIntent)
 
 //        contentView.setTextViewText(R.id.txtNameMTF, nameSong);
-//        contentView.setTextViewText(R.id.txtTime, timeSong);
 
-//        contentView.setImageViewBitmap(R.id.imgbackgroundNotification, bitmapBackground);
 
         if (myPlay!!.isPlay()) {
 
             contentView.setImageViewResource(R.id.imgPlay, R.drawable.ic_pause);
+
         } else {
             contentView.setImageViewResource(R.id.imgPlay, R.drawable.ic_play);
         }
@@ -78,7 +75,11 @@ public class MyServiceMediaplayer : Service() {
         contentView.setOnClickPendingIntent(R.id.playPauseNotification, pendingIntent)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val importance = NotificationManager.IMPORTANCE_LOW
-            val notificationChannel = NotificationChannel(NOTIFICATION_CHANNEL_ID, "NOTIFICATION_CHANNEL_NAME", importance)
+            val notificationChannel = NotificationChannel(
+                NOTIFICATION_CHANNEL_ID,
+                "NOTIFICATION_CHANNEL_NAME",
+                importance
+            )
             nbuilder.setChannelId(NOTIFICATION_CHANNEL_ID)
             mNotificationManager.createNotificationChannel(notificationChannel)
         }
@@ -89,6 +90,9 @@ public class MyServiceMediaplayer : Service() {
     }
 
 
+
+
+
     fun pause() {
         myPlay!!.pause()
     }
@@ -97,13 +101,18 @@ public class MyServiceMediaplayer : Service() {
         myPlay!!.play()
     }
 
-    inner class MyPlay( context: Context) {
+    fun updateNotification() {
+        myPlay!!.seekto()
+    }
 
+    inner class MyPlay(context: Context) {
+        val handler = Handler()
         val mediaPlayer: MediaPlayer = MediaPlayer.create(context, R.raw.nguoitungthuon)
 
         fun isPlay(): Boolean {
             return mediaPlayer.isPlaying
         }
+
         fun play() {
             mediaPlayer.start()
         }
@@ -113,8 +122,24 @@ public class MyServiceMediaplayer : Service() {
         }
 
         fun seekto() {
-            mediaPlayer.seekTo(120000)
+            handler.postDelayed(object : Runnable {
+                override fun run() {
+                    //Do something after 100ms
+                    Log.e("AAAAAAAAAAAA ", " " + mediaPlayer.currentPosition / 1000)
+                    updateNotification( mediaPlayer.currentPosition / 1000)
+                    if (myPlay!!.isPlay())
+                    handler.postDelayed(this, 2000)
+                }
+            }, 1500)
         }
-
+    }
+    //cap nhat lai trang thai tren notification
+    private fun updateNotification(progress: Int) {
+        nbuilder.setOnlyAlertOnce(true)
+        contentView.setTextViewText(R.id.txtTime, progress.toString())
+        mNotificationManager.notify(123, nbuilder.build())
     }
 }
+
+
+

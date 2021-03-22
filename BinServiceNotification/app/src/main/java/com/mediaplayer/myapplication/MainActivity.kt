@@ -45,6 +45,8 @@ class MainActivity : AppCompatActivity() {
         btnPlay.setOnClickListener {
             myService!!.play()
         }
+        buttonUpdateNoti.setOnClickListener { myService!!.updateNotification() }
+
     }
 
 
