@@ -16,9 +16,8 @@ import android.view.View;
 public class MainActivity extends AppCompatActivity {
 
     private MyService myService;
-    private Intent intent;
+    private Intent intentsss;
     private ServiceConnection connection = new ServiceConnection() {
-
         // Phương thức này được hệ thống gọi khi kết nối tới service bị lỗi
         @Override
         public void onServiceDisconnected(ComponentName name) {
@@ -30,7 +29,6 @@ public class MainActivity extends AppCompatActivity {
         public void onServiceConnected(ComponentName name, IBinder service) {
             MyService.MyBinder binder = (MyService.MyBinder) service;
             myService = binder.getService(); // lấy đối tượng MyService
-
         }
     };
 
@@ -59,10 +57,10 @@ public class MainActivity extends AppCompatActivity {
                 myService.hidenNotification();
                 break;
             case R.id.btnStartService:
-                startService(intent);
+                startService(intentsss);
                 break;
             case R.id.btnDisconnectSevice:
-                stopService(intent);
+                stopService(intentsss);
                 break;
         }
     }
@@ -71,15 +69,12 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        if (intent == null) {
-            intent = new Intent(this, MyService.class);
-            bindService(intent, connection, Context.BIND_AUTO_CREATE);
-            startService(intent);
+        if (intentsss == null) {
+            intentsss = new Intent(this, MyService.class);
+            bindService(intentsss, connection, Context.BIND_AUTO_CREATE);
+            startService(intentsss);
         }
     }
 
 
-    public void clickchuyentrang(View view) {
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragme,new BlankFragment()).commit();
-    }
 }

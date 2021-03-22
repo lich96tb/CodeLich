@@ -28,6 +28,7 @@ public class MyService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
+        Log.e("aaaaaaaaaaaaaaa ","2222222222");
         binder = new MyBinder();
         myPlay = new MyPlay(this);
 
