@@ -1,4 +1,0 @@
-#Fri Aug 16 13:34:24 ICT 2019
-base.0=D\:\\Lich96tb\\github\\MyApplication2\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\7
-path.0=classes.dex
-renamed.0=classes.dex
